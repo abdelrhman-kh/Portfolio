@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdel-Rhman Khamis - Skills</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="icon" href="media/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <img src="media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="experience.html"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="skills.html"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <main>
+            <section id="skills">
+                <h3><i class="fas fa-cogs"></i> Skills</h3>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <i class="fas fa-tools skill-icon"></i>
+                        <h4>DevOps Tools</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fab fa-git-alt" data-tippy-content="Git"></i> Git</li>
+                            <li><i class="fab fa-jenkins" data-tippy-content="Jenkins"></i> Jenkins</li>
+                            <li><i class="fab fa-microsoft" data-tippy-content="Azure DevOps"></i> Azure DevOps</li>
+                            <li><i class="fab fa-github" data-tippy-content="GitHub"></i> GitHub</li>
+                            <li><i class="fas fa-rocket" data-tippy-content="Octopus Deploy"></i> Octopus Deploy</li>
+                            <li><i class="fas fa-terminal" data-tippy-content="Helm"></i> Helm</li>
+                            <li><i class="fas fa-ship" data-tippy-content="ArgoCD"></i> ArgoCD</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-docker skill-icon"></i>
+                        <h4>Containers & Orchestration</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fab fa-docker" data-tippy-content="Docker"></i> Docker (Compose, Swarm)</li>
+                            <li><i class="fas fa-server" data-tippy-content="Kubernetes"></i> Kubernetes</li>
+                        </ul>
+                    </div>
+                    <div class=" skill-item">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4>Scripting</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fab fa-windows" data-tippy-content="PowerShell"></i> PowerShell</li>
+                            <li><i class="fas fa-terminal" data-tippy-content="Bash"></i> Bash</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line skill-icon"></i>
+                        <h4>Monitoring & Logging</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fas fa-search" data-tippy-content="ELK Stack"></i> ELK Stack</li>
+                            <li><i class="fas fa-eye" data-tippy-content="Zabbix"></i> Zabbix</li>
+                            <li><i class="fas fa-chart-pie" data-tippy-content="Prometheus"></i> Prometheus</li>
+                            <li><i class="fas fa-chart-bar" data-tippy-content="Loki"></i> Loki</li>
+                            <li><i class="fas fa-chart-area" data-tippy-content="Grafana"></i> Grafana</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-exchange-alt skill-icon"></i>
+                        <h4>Message Broker</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fas fa-exchange-alt" data-tippy-content="RabbitMQ"></i> RabbitMQ</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>DB Administration</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fas fa-database" data-tippy-content="MSSQL"></i> MSSQL</li>
+                            <li><i class="fas fa-database" data-tippy-content="PostgreSQL"></i> PostgreSQL</li>
+                            <li><i class="fas fa-database" data-tippy-content="MySQL"></i> MySQL</li>
+                            <li><i class="fas fa-database" data-tippy-content="MariaDB"></i> MariaDB</li>
+                            <li><i class="fas fa-database" data-tippy-content="MongoDB"></i> MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <h4>Cloud Providers</h4>
+                        <ul class="sub-skills">
+                            <li><i class="fab fa-aws" data-tippy-content="AWS"></i> AWS</li>
+                            <li><i class="fab fa-microsoft" data-tippy-content="Azure"></i> Azure</li>
+                            <li><i class="fab fa-digital-ocean" data-tippy-content="DigitalOcean"></i> DigitalOcean</li>
+                            <li><i class="fas fa-cloud" data-tippy-content="Oracle Cloud"></i> Oracle Cloud</li>
+                            <li><i class="fas fa-cloud" data-tippy-content="Zain Cloud"></i> Zain Cloud</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
+                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
+            </div>
+            <p>&copy; 2024 Abdel-Rhman Khamis. All rights reserved.</p>
+        </footer>
+        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="js/skills.js"></script>
+</body>
+</html>

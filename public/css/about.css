@@ -1,0 +1,40 @@
+/* Page-specific styles for About page */
+#about {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+#about h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #about h3 {
+        font-size: 1.5em;
+    }
+
+    #about p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    #about h3 {
+        font-size: 1.2em;
+    }
+
+    #about p {
+        font-size: 0.9em;
+    }
+}
