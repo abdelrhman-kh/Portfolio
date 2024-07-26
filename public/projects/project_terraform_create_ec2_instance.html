@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TerraformCreateEC2Instance</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Terraform Create EC2 Instance</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/project_terraform_create_ec2_instance.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav>
         <div class="nav-container">
             <img src="../media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
-            <ul>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
                 <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="../about.html"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="../experience.html"><i class="fas fa-briefcase"></i> Experience</a></li>
@@ -25,7 +32,7 @@
         <main>
             <section id="project">
                 <h3>Terraform Create EC2 Instance</h3>
-                <img src="../media/terraform.jpg" alt="TerraformCreateEC2Instance">
+                <img src="../media/terraform.jpg" alt="Terraform Create EC2 Instance">
                 <p>Simplified AWS infrastructure deployment with a Terraform project to automate EC2 instance creation and configuration.</p>
                 <a href="https://github.com/abdelrhman-kh/terraform-create-ec2-instance" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 <div class="tags">
@@ -35,14 +42,20 @@
         </main>
         <footer>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+201153015763"><i class="fas fa-phone-alt"></i></a>
-                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
+                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
             </div>
             <p>&copy; 2024 Abdel-Rhman Khamis. All rights reserved.</p>
-        </footer> 
+        </footer>
+        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="js/project_terraform_create_ec2_instance.js"></script>
 </body>
 </html>

@@ -122,6 +122,28 @@ footer {
     margin-bottom: 10px; /* Add space below the image */
 }
 
+.tags {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Center the spans horizontally */
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background-color: #007BFF; /* Background color for the tags */
+    color: #fff; /* Text color for the tags */
+    padding: 5px 10px; /* Padding inside the tags */
+    border-radius: 5px; /* Rounded corners for the tags */
+    font-size: 0.9em; /* Font size for the tags */
+    display: inline-block;
+    margin-bottom: 5px; /* Space between rows of tags */
+}
+
+.tags span:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
 #back-to-top {
     position: fixed;
     bottom: 30px;
