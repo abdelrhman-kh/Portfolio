@@ -4,7 +4,7 @@ function toggleMenu() {
 }
 
 $(document).ready(function() {
-    // Smooth scroll
+    // Smooth scroll for navigation links
     $('nav ul li a').on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
@@ -17,17 +17,17 @@ $(document).ready(function() {
         }
     });
 
-    // Animate on scroll
-    $('.skill-item').waypoint(function(direction) {
+    // Animate elements on scroll
+    $('#about').waypoint(function(direction) {
         $(this.element).addClass('animate__animated animate__fadeInUp');
     }, {
         offset: '75%'
     });
 
-    // Tooltips
+    // Initialize tooltips
     tippy('[data-tippy-content]');
 
-    // Back to top button
+    // Back to top button functionality
     var backToTopButton = $('#back-to-top');
 
     $(window).scroll(function() {

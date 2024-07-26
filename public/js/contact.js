@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 
     // Animate on scroll
-    $('.experience-item').waypoint(function(direction) {
+    $('.contact-form').waypoint(function(direction) {
         $(this.element).addClass('animate__animated animate__fadeInUp');
     }, {
         offset: '75%'

@@ -1,27 +1,43 @@
-/* Page-specific styles for About page */
+body {
+    background: #121212;
+    color: #e0e0e0;
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
 #about {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(34, 34, 34, 0.9);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
+    transition: background 0.3s ease-in-out;
 }
 
 #about h3 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 20px;
+    font-weight: bold;
+    color: #00e676;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 8px #00e676;
+    border-bottom: 2px solid #00e676;
+    padding-bottom: 10px;
 }
 
 #about p {
     font-size: 1.2em;
     line-height: 1.8em;
     margin-bottom: 20px;
+    color: #ccc;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     #about h3 {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 
     #about p {
@@ -31,7 +47,7 @@
 
 @media (max-width: 480px) {
     #about h3 {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     #about p {

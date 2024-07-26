@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.min.css');
+@import url('https://unpkg.com/tippy.js@6.3.7/tippy.min.css');
 
 body {
     background-image: url('../media/background.jpg'); /* Update path if necessary */
@@ -9,14 +9,15 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
+    font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 nav {
@@ -62,7 +63,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #007BFF;
+    color: #00e676;
 }
 
 .nav-profile-pic {
@@ -79,20 +80,21 @@ nav ul li a:hover {
 
 .container {
     max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(34, 34, 34, 0.9);
     padding: 30px;
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     border-radius: 15px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
     text-align: center;
     margin: 100px 30px 30px;
+    transition: background 0.3s ease-in-out;
 }
 
 footer {
-    background-color: #f7f7f7;
+    background-color: #1c1c1c;
     padding: 20px 0;
     margin-top: 20px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #333;
     font-size: 0.9em;
     color: #777;
     text-align: center;
@@ -107,19 +109,19 @@ footer {
 
 .footer-social a {
     font-size: 1.5em;
-    color: #007BFF;
+    color: #00e676;
     transition: color 0.3s;
 }
 
 .footer-social a:hover {
-    color: #0056b3;
+    color: #00b248;
 }
 
 #back-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #007BFF;
+    background-color: #00e676;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -135,12 +137,9 @@ footer {
 }
 
 #back-to-top:hover {
-    background-color: #0056b3;
+    background-color: #00b248;
     transform: scale(1.1);
 }
-
-
-
 
 /* Media Queries */
 @media (max-width: 768px) {
