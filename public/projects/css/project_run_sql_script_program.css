@@ -4,12 +4,8 @@
 @import url('https://unpkg.com/tippy.js@6.3.1/dist/tippy.css');
 
 body {
-    background-image: url('../../media/background.jpg'); /* Update path if necessary */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #333;
+    background: #121212;
+    color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -17,11 +13,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 nav {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -29,6 +26,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav .nav-container {
@@ -44,8 +42,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 10px; /* Adjust gap if needed */
-    flex-wrap: wrap; /* Allow items to wrap to new lines if needed */
+    gap: 15px;
 }
 
 nav ul li {
@@ -55,13 +52,13 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1em; /* Adjust font size if needed */
-    padding: 8px 10px; /* Adjust padding if needed */
+    font-size: 1.2em;
+    padding: 10px 15px;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #007BFF;
+    color: #00e676;
 }
 
 .nav-profile-pic {
@@ -78,20 +75,58 @@ nav ul li a:hover {
 
 .container {
     max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(34, 34, 34, 0.9);
     padding: 30px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 15px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
     text-align: center;
     margin: 100px 30px 30px;
 }
 
+#project img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#project img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.7);
+}
+
+.tags {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background-color: #00e676;
+    color: #121212;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tags span:hover {
+    background-color: #00c853;
+    transform: scale(1.1);
+}
+
 footer {
-    background-color: #f7f7f7;
+    background-color: #1c1c1c;
     padding: 20px 0;
     margin-top: 20px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #333;
     font-size: 0.9em;
     color: #777;
     text-align: center;
@@ -106,65 +141,36 @@ footer {
 
 .footer-social a {
     font-size: 1.5em;
-    color: #007BFF;
-    transition: color 0.3s;
+    color: #00e676;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .footer-social a:hover {
-    color: #0056b3;
-}
-
-#project img {
-    width: 100px; /* Set the desired width */
-    height: 100px; /* Set the desired height */
-    object-fit: cover; /* Ensure the image fits within the set dimensions */
-    border-radius: 10px; /* Maintain consistent styling */
-    margin-bottom: 10px; /* Add space below the image */
-}
-
-.tags {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center; /* Center the spans horizontally */
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-.tags span {
-    background-color: #007BFF; /* Background color for the tags */
-    color: #fff; /* Text color for the tags */
-    padding: 5px 10px; /* Padding inside the tags */
-    border-radius: 5px; /* Rounded corners for the tags */
-    font-size: 0.9em; /* Font size for the tags */
-    display: inline-block;
-    margin-bottom: 5px; /* Space between rows of tags */
-}
-
-.tags span:hover {
-    background-color: #0056b3; /* Darker background color on hover */
+    color: #00c853;
+    transform: scale(1.1);
 }
 
 #back-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #00e676;
+    color: #121212;
     border: none;
     border-radius: 50%;
     padding: 10px 15px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s, transform 0.3s;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
 #back-to-top.show {
-    display: block; /* Show when class "show" is added */
+    display: block;
 }
 
 #back-to-top:hover {
-    background-color: #0056b3;
+    background-color: #00c853;
     transform: scale(1.1);
 }
 
@@ -178,7 +184,7 @@ footer {
         display: none;
         flex-direction: column;
         gap: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
         top: 60px;
         left: 0;
