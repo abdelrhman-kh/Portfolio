@@ -11,6 +11,9 @@ function toggleMenu() {
         const isActive = navLinks.classList.contains('active');
         
         if (!isActive) {
+            // Store current scroll position
+            const scrollY = window.scrollY;
+            
             // Open menu
             navLinks.classList.add('active');
             menuIcon.classList.add('active');
@@ -18,8 +21,15 @@ function toggleMenu() {
             menuIconElement.classList.remove('fa-bars');
             menuIconElement.classList.add('fa-times');
             
-            // Prevent scroll on body
+            // Prevent background scroll while preserving scroll position
+            body.style.position = 'fixed';
+            body.style.top = `-${scrollY}px`;
+            body.style.width = '100%';
+            body.style.height = '100%';
             body.style.overflow = 'hidden';
+            
+            // Store scroll position
+            body.setAttribute('data-scroll-y', scrollY.toString());
             
             // Add escape key listener
             document.addEventListener('keydown', closeMenuOnEscape);
@@ -51,8 +61,18 @@ function closeMenu() {
         menuIconElement.classList.remove('fa-times');
         menuIconElement.classList.add('fa-bars');
         
-        // Restore scroll on body
+        // Restore scroll position
+        const scrollY = body.getAttribute('data-scroll-y');
+        body.style.position = '';
+        body.style.top = '';
+        body.style.width = '';
+        body.style.height = '';
         body.style.overflow = '';
+        
+        if (scrollY) {
+            window.scrollTo(0, parseInt(scrollY));
+            body.removeAttribute('data-scroll-y');
+        }
         
         // Remove escape key listener
         document.removeEventListener('keydown', closeMenuOnEscape);
