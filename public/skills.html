@@ -39,12 +39,41 @@
     <div class="container">
         <main>
             <section id="skills" class="scroll-animate">
-                <h3><i class="fas fa-cogs"></i> Technical Skills & Expertise</h3>
-                
+            <h3><i class="fas fa-cogs"></i> Technical Skills & Expertise</h3>
+                <p class="skills-subtitle">Cutting-edge technologies and frameworks powering modern DevOps</p>
 
+            <!-- Search and Filter Section -->
+            <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" placeholder="Search technologies..." id="searchInput">
+                </div>
+
+                <div class="skills-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-globe"></i> All Skills
+                    </button>
+                    <button class="filter-btn" data-filter="devops">
+                        <i class="fas fa-tools"></i> DevOps
+                    </button>
+                    <button class="filter-btn" data-filter="cloud">
+                        <i class="fas fa-cloud"></i> Cloud
+                    </button>
+                    <button class="filter-btn" data-filter="security">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </button>
+                    <button class="filter-btn" data-filter="monitoring">
+                        <i class="fas fa-chart-line"></i> Monitoring
+                    </button>
+                    <button class="filter-btn" data-filter="database">
+                        <i class="fas fa-database"></i> Database
+                    </button>
+                    <button class="filter-btn" data-filter="programming">
+                        <i class="fas fa-code"></i> Programming
+                    </button>
+                </div>
                 
                 <div class="skills-container">
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="devops">
                         <i class="fas fa-tools skill-icon"></i>
                         <h4>DevOps & CI/CD</h4>
                         <div class="tech-category">
@@ -75,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="devops">
                         <i class="fas fa-cube skill-icon"></i>
                         <h4>Infrastructure as Code</h4>
                         <div class="tech-category">
@@ -105,7 +134,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="security">
                         <i class="fas fa-shield-alt skill-icon"></i>
                         <h4>Security & DevSecOps</h4>
                         <div class="tech-category">
@@ -135,7 +164,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="cloud">
                         <i class="fas fa-cloud skill-icon"></i>
                         <h4>Cloud Platforms</h4>
                         <div class="tech-category">
@@ -176,7 +205,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="monitoring">
                         <i class="fas fa-chart-line skill-icon"></i>
                         <h4>Monitoring & Observability</h4>
                         <div class="tech-category">
@@ -208,7 +237,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="database">
                         <i class="fas fa-database skill-icon"></i>
                         <h4>Databases & Storage</h4>
                         <div class="tech-category">
@@ -246,7 +275,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item">
+                    <div class="skill-item" data-category="programming">
                         <i class="fas fa-code skill-icon"></i>
                         <h4>Programming & Scripting</h4>
                         <div class="tech-category">

@@ -12,7 +12,11 @@ $(document).ready(function() {
     // Initialize skill interactions
     initSkillInteractions();
     
-
+    // Initialize filtering system
+    initFilters();
+    
+    // Initialize search functionality
+    initSearch();
 });
 
 // Skill item animations
@@ -256,3 +260,85 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Filter functionality
+function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+            
+            skillItems.forEach((item, index) => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('hidden');
+                    // Re-animate visible items
+                    setTimeout(() => {
+                        item.style.animation = `slideInUp 0.6s ease-out ${index * 0.1}s forwards`;
+                    }, 50);
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+}
+
+// Search functionality
+function initSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        
+        skillItems.forEach(item => {
+            const techTags = item.querySelectorAll('.tech-tag');
+            const title = item.querySelector('h4').textContent.toLowerCase();
+            const categoryHeaders = item.querySelectorAll('.tech-category h5');
+            
+            let hasMatch = title.includes(query);
+            
+            // Check tech tags
+            techTags.forEach(tag => {
+                if (tag.textContent.toLowerCase().includes(query)) {
+                    hasMatch = true;
+                    // Highlight matching tags
+                    tag.style.background = 'rgba(255, 217, 61, 0.8)';
+                    tag.style.color = 'black';
+                } else {
+                    tag.style.background = '';
+                    tag.style.color = '';
+                }
+            });
+            
+            // Check category headers
+            categoryHeaders.forEach(header => {
+                if (header.textContent.toLowerCase().includes(query)) {
+                    hasMatch = true;
+                }
+            });
+            
+            if (hasMatch || query === '') {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+        
+        // Clear highlights when search is empty
+        if (query === '') {
+            document.querySelectorAll('.tech-tag').forEach(tag => {
+                tag.style.background = '';
+                tag.style.color = '';
+            });
+        }
+    });
+}
