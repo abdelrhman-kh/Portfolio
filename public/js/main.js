@@ -266,8 +266,16 @@ function initBackToTop() {
     });
 }
 
-// Enhanced Mobile Menu Toggle
+// Enhanced Mobile Menu Toggle - DISABLED in favor of mobile-menu-simple.js
 function initMobileMenu() {
+    // Skip mobile menu initialization if mobile-menu-simple.js is loaded
+    if (window.toggleMobileMenu) {
+        console.log('Skipping main.js mobile menu - using mobile-menu-simple.js instead');
+        return;
+    }
+    
+    console.log('mobile-menu-simple.js not found, using fallback mobile menu');
+    
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.getElementById('nav-links');
     

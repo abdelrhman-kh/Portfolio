@@ -66,6 +66,15 @@
     // Initialize when DOM loads
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Simple mobile menu loaded on:', window.location.pathname);
+    
+    // Hide loading screen if it exists to prevent interference
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            console.log('🔧 Forced loading screen hidden for mobile menu');
+        }, 100);
+    }
         
         // Find menu icon and add event listener
         const menuIcon = document.querySelector('.menu-icon');
