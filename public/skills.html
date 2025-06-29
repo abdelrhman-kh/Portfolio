@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdel-Rhman Khamis - Skills</title>
+    <meta name="description" content="Technical skills and expertise of Abdel-Rhman Khamis - Senior DevOps Engineer">
+    <title>Skills - Abdel-Rhman Khamis | Senior DevOps Engineer</title>
+    
+    <link rel="preload" href="css/common.css" as="style">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/skills.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <img src="media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
+            <img src="media/profile.jpg" alt="Abdel-Rhman Khamis Profile Picture" class="nav-profile-pic">
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -28,106 +35,284 @@
             </ul>
         </div>
     </nav>
+    
     <div class="container">
         <main>
-            <section id="skills">
-                <h3><i class="fas fa-cogs"></i> Skills</h3>
+            <section id="skills" class="scroll-animate">
+                <h3><i class="fas fa-cogs"></i> Technical Skills & Expertise</h3>
+                
+
+                
                 <div class="skills-container">
                     <div class="skill-item">
                         <i class="fas fa-tools skill-icon"></i>
                         <h4>DevOps & CI/CD</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fab fa-git-alt" data-tippy-content="Git"></i> Git</li>
-                            <li><i class="fab fa-jenkins" data-tippy-content="Jenkins"></i> Jenkins</li>
-                            <li><i class="fab fa-microsoft" data-tippy-content="Azure DevOps"></i> Azure DevOps</li>
-                            <li><i class="fab fa-github" data-tippy-content="GitHub Actions"></i> GitHub Actions</li>
-                            <li><i class="fab fa-gitlab" data-tippy-content="GitLab CI"></i> GitLab CI</li>
-                            <li><i class="fas fa-rocket" data-tippy-content="Octopus Deploy"></i> Octopus Deploy</li>
-                            <li><i class="fas fa-terminal" data-tippy-content="Helm"></i> Helm</li>
-                            <li><i class="fas fa-ship" data-tippy-content="ArgoCD"></i> ArgoCD</li>
-                        </ul>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-code-branch"></i> Version Control & CI/CD</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Git</span>
+                                <span class="tech-tag">GitHub Actions</span>
+                                <span class="tech-tag">GitLab CI</span>
+                                <span class="tech-tag">Jenkins</span>
+                                <span class="tech-tag">Azure DevOps</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-rocket"></i> Deployment & Automation</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Helm</span>
+                                <span class="tech-tag">ArgoCD</span>
+                                <span class="tech-tag">Octopus Deploy</span>
+                                <span class="tech-tag">GitOps</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
                     </div>
+
                     <div class="skill-item">
                         <i class="fas fa-cube skill-icon"></i>
                         <h4>Infrastructure as Code</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fas fa-layer-group" data-tippy-content="Terraform"></i> Terraform</li>
-                            <li><i class="fab fa-docker" data-tippy-content="Docker"></i> Docker (Compose, Swarm)</li>
-                            <li><i class="fas fa-server" data-tippy-content="Kubernetes"></i> Kubernetes</li>
-                        </ul>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-layer-group"></i> IaC Tools</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">ARM Templates</span>
+                                <span class="tech-tag">CloudFormation</span>
+                                <span class="tech-tag">Ansible</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fab fa-docker"></i> Containerization</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Docker Compose</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Container Registry</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
                     </div>
+
                     <div class="skill-item">
                         <i class="fas fa-shield-alt skill-icon"></i>
                         <h4>Security & DevSecOps</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fas fa-lock" data-tippy-content="Zero-Trust Architecture"></i> Zero-Trust Architecture</li>
-                            <li><i class="fas fa-shield-virus" data-tippy-content="DevSecOps"></i> DevSecOps</li>
-                            <li><i class="fas fa-code-branch" data-tippy-content="GitOps"></i> GitOps</li>
-                            <li><i class="fas fa-user-shield" data-tippy-content="Government Compliance"></i> Government Compliance</li>
-                        </ul>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-lock"></i> Security Frameworks</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Zero-Trust Architecture</span>
+                                <span class="tech-tag">DevSecOps</span>
+                                <span class="tech-tag">SAST/DAST</span>
+                                <span class="tech-tag">Vulnerability Scanning</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-user-shield"></i> Compliance & Governance</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Government Compliance</span>
+                                <span class="tech-tag">HIPAA</span>
+                                <span class="tech-tag">SOC 2</span>
+                                <span class="tech-tag">Policy as Code</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-code skill-icon"></i>
-                        <h4>Scripting & Programming</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fab fa-windows" data-tippy-content="PowerShell"></i> PowerShell</li>
-                            <li><i class="fas fa-terminal" data-tippy-content="Bash"></i> Bash</li>
-                            <li><i class="fab fa-python" data-tippy-content="Python"></i> Python</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-chart-line skill-icon"></i>
-                        <h4>Monitoring & Observability</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fas fa-search" data-tippy-content="ELK Stack"></i> ELK Stack</li>
-                            <li><i class="fas fa-eye" data-tippy-content="Zabbix"></i> Zabbix</li>
-                            <li><i class="fas fa-chart-pie" data-tippy-content="Prometheus"></i> Prometheus</li>
-                            <li><i class="fas fa-chart-bar" data-tippy-content="Loki"></i> Loki</li>
-                            <li><i class="fas fa-chart-area" data-tippy-content="Grafana"></i> Grafana</li>
-                            <li><i class="fas fa-dog" data-tippy-content="DataDog"></i> DataDog</li>
-                        </ul>
-                    </div>
+
                     <div class="skill-item">
                         <i class="fas fa-cloud skill-icon"></i>
                         <h4>Cloud Platforms</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fab fa-aws" data-tippy-content="AWS"></i> AWS</li>
-                            <li><i class="fab fa-microsoft" data-tippy-content="Microsoft Azure"></i> Microsoft Azure</li>
-                            <li><i class="fab fa-google" data-tippy-content="Google Cloud Platform"></i> Google Cloud Platform</li>
-                            <li><i class="fas fa-cloud" data-tippy-content="Oracle Cloud"></i> Oracle Cloud</li>
-                            <li><i class="fab fa-digital-ocean" data-tippy-content="DigitalOcean"></i> DigitalOcean</li>
-                        </ul>
+                        <div class="tech-category">
+                            <h5><i class="fab fa-aws"></i> Amazon Web Services</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">EC2</span>
+                                <span class="tech-tag">EKS</span>
+                                <span class="tech-tag">Lambda</span>
+                                <span class="tech-tag">RDS</span>
+                                <span class="tech-tag">S3</span>
+                                <span class="tech-tag">CloudWatch</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fab fa-microsoft"></i> Microsoft Azure</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Azure VMs</span>
+                                <span class="tech-tag">AKS</span>
+                                <span class="tech-tag">App Services</span>
+                                <span class="tech-tag">Azure SQL</span>
+                                <span class="tech-tag">Application Gateway</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fab fa-google"></i> Other Platforms</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Google Cloud Platform</span>
+                                <span class="tech-tag">Oracle Cloud</span>
+                                <span class="tech-tag">DigitalOcean</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
                     </div>
+
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line skill-icon"></i>
+                        <h4>Monitoring & Observability</h4>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-search"></i> Logging & Search</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">ELK Stack</span>
+                                <span class="tech-tag">Elasticsearch</span>
+                                <span class="tech-tag">Logstash</span>
+                                <span class="tech-tag">Kibana</span>
+                                <span class="tech-tag">Fluentd</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-chart-area"></i> Metrics & Dashboards</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Prometheus</span>
+                                <span class="tech-tag">Grafana</span>
+                                <span class="tech-tag">DataDog</span>
+                                <span class="tech-tag">Zabbix</span>
+                                <span class="tech-tag">New Relic</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+
                     <div class="skill-item">
                         <i class="fas fa-database skill-icon"></i>
-                        <h4>Databases & Messaging</h4>
-                        <ul class="sub-skills">
-                            <li><i class="fas fa-database" data-tippy-content="MSSQL"></i> MSSQL</li>
-                            <li><i class="fas fa-database" data-tippy-content="PostgreSQL"></i> PostgreSQL</li>
-                            <li><i class="fas fa-database" data-tippy-content="MySQL"></i> MySQL</li>
-                            <li><i class="fas fa-database" data-tippy-content="MongoDB"></i> MongoDB</li>
-                            <li><i class="fas fa-exchange-alt" data-tippy-content="RabbitMQ"></i> RabbitMQ</li>
-                        </ul>
+                        <h4>Databases & Storage</h4>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-server"></i> Relational Databases</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">MSSQL</span>
+                                <span class="tech-tag">MariaDB</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-leaf"></i> NoSQL & Caching</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">Cassandra</span>
+                                <span class="tech-tag">DynamoDB</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-exchange-alt"></i> Message Brokers</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">RabbitMQ</span>
+                                <span class="tech-tag">Apache Kafka</span>
+                                <span class="tech-tag">Azure Service Bus</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4>Programming & Scripting</h4>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-terminal"></i> Scripting Languages</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">PowerShell</span>
+                                <span class="tech-tag">Bash</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">YAML</span>
+                                <span class="tech-tag">JSON</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h5><i class="fas fa-code"></i> Development</h5>
+                            <div class="tech-tags">
+                                <span class="tech-tag">.NET Core</span>
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Go</span>
+                            </div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Progress Summary -->
+                <div class="skills-summary">
+                    <h4>Core Expertise Areas</h4>
+                    <p>Specialized knowledge in government sector DevSecOps and enterprise-scale infrastructure</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Government Compliance</span>
+                        <span class="skill-tag">Zero-Trust Security</span>
+                        <span class="skill-tag">Enterprise Scale</span>
+                        <span class="skill-tag">Multi-Cloud</span>
+                        <span class="skill-tag">DevSecOps</span>
+                        <span class="skill-tag">Infrastructure as Code</span>
+                        <span class="skill-tag">Container Orchestration</span>
+                        <span class="skill-tag">CI/CD Automation</span>
                     </div>
                 </div>
             </section>
         </main>
+        
         <footer>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
-                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
-                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
-                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
-                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201153015763" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; 2025 Abdel-Rhman Khamis. All rights reserved.</p>
         </footer>
-        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+        
+        <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
     </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/performance.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/skills.js"></script>
 </body>
 </html>
