@@ -1,37 +1,74 @@
 // Modern JavaScript for Enhanced Portfolio
 
-// Define toggleMenu immediately to prevent "not defined" errors
+// Enhanced toggleMenu function with better mobile handling
 function toggleMenu() {
     const navLinks = document.getElementById('nav-links');
-    const menuIcon = document.querySelector('.menu-icon i');
+    const menuIcon = document.querySelector('.menu-icon');
+    const menuIconElement = document.querySelector('.menu-icon i');
+    const body = document.body;
     
-    if (navLinks && menuIcon) {
-        navLinks.classList.toggle('active');
+    if (navLinks && menuIcon && menuIconElement) {
+        const isActive = navLinks.classList.contains('active');
         
-        if (navLinks.classList.contains('active')) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
+        if (!isActive) {
+            // Open menu
+            navLinks.classList.add('active');
+            menuIcon.classList.add('active');
+            body.classList.add('menu-open');
+            menuIconElement.classList.remove('fa-bars');
+            menuIconElement.classList.add('fa-times');
             
-            // Ensure proper z-index for mobile menu
-            navLinks.style.zIndex = '1001';
+            // Prevent scroll on body
+            body.style.overflow = 'hidden';
+            
+            // Add escape key listener
+            document.addEventListener('keydown', closeMenuOnEscape);
+            
         } else {
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-            
-            // Reset z-index
-            navLinks.style.zIndex = '';
+            // Close menu
+            closeMenu();
         }
     } else {
-        // Fallback for missing elements
         console.warn('Mobile menu elements not found', {
             navLinks: !!navLinks,
-            menuIcon: !!menuIcon
+            menuIcon: !!menuIcon,
+            menuIconElement: !!menuIconElement
         });
     }
 }
 
-// Make toggleMenu available globally immediately
+// Function to close menu
+function closeMenu() {
+    const navLinks = document.getElementById('nav-links');
+    const menuIcon = document.querySelector('.menu-icon');
+    const menuIconElement = document.querySelector('.menu-icon i');
+    const body = document.body;
+    
+    if (navLinks && menuIcon && menuIconElement) {
+        navLinks.classList.remove('active');
+        menuIcon.classList.remove('active');
+        body.classList.remove('menu-open');
+        menuIconElement.classList.remove('fa-times');
+        menuIconElement.classList.add('fa-bars');
+        
+        // Restore scroll on body
+        body.style.overflow = '';
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', closeMenuOnEscape);
+    }
+}
+
+// Function to handle escape key
+function closeMenuOnEscape(e) {
+    if (e.key === 'Escape') {
+        closeMenu();
+    }
+}
+
+// Make functions available globally immediately
 window.toggleMenu = toggleMenu;
+window.closeMenu = closeMenu;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure toggleMenu is available
@@ -209,52 +246,56 @@ function initBackToTop() {
     });
 }
 
-// Mobile Menu Toggle
+// Enhanced Mobile Menu Toggle
 function initMobileMenu() {
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.getElementById('nav-links');
     
     if (menuIcon && navLinks) {
-        // Ensure toggleMenu is available immediately
+        // Ensure global functions are available
         window.toggleMenu = toggleMenu;
+        window.closeMenu = closeMenu;
         
-        // Close menu when clicking on a link
+        // Add click listener as backup
+        menuIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking on navigation links
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = menuIcon.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
+            link.addEventListener('click', (e) => {
+                // Add a slight delay for better UX
+                setTimeout(() => {
+                    closeMenu();
+                }, 150);
             });
         });
         
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!menuIcon.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                const icon = menuIcon.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
+        // Close menu when clicking on overlay (but not on menu content)
+        navLinks.addEventListener('click', (e) => {
+            // Only close if clicking on the overlay itself, not menu items
+            if (e.target === navLinks) {
+                closeMenu();
             }
         });
         
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                const icon = menuIcon.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMenu();
             }
         });
         
-        console.log('Mobile menu initialized successfully');
+        // Prevent default touch behaviors on mobile menu
+        navLinks.addEventListener('touchmove', (e) => {
+            if (navLinks.classList.contains('active')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        console.log('Enhanced mobile menu initialized successfully');
     } else {
         console.warn('Mobile menu elements not found during initialization');
     }

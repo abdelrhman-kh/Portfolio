@@ -1,0 +1,250 @@
+/* Mobile Menu Fixes and Enhancements */
+
+/* Ensure proper z-index stacking */
+nav {
+  z-index: 9999 !important;
+}
+
+.nav-container {
+  position: relative;
+  z-index: 10001;
+}
+
+/* Mobile Menu Improvements */
+@media (max-width: 768px) {
+  /* Menu Icon Enhancements */
+  .menu-icon {
+    display: block !important;
+    z-index: 10001;
+    position: relative;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .menu-icon:hover {
+    background: rgba(79, 70, 229, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .menu-icon:active {
+    transform: scale(0.95);
+  }
+  
+  .menu-icon i {
+    font-size: 1.6rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-primary);
+    display: block;
+  }
+  
+  /* Full Screen Mobile Menu */
+  #nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    z-index: 10000 !important;
+    
+    /* Initial hidden state */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Remove default list styles */
+    list-style: none;
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  /* Active menu state */
+  #nav-links.active {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* Menu Items Styling */
+  #nav-links li {
+    margin: 0;
+    width: 100%;
+    max-width: 320px;
+    list-style: none;
+  }
+  
+  #nav-links a {
+    display: block !important;
+    padding: 1.5rem 2rem !important;
+    text-align: center !important;
+    border-radius: 16px !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    color: var(--text-primary) !important;
+    background: rgba(79, 70, 229, 0.08) !important;
+    border: 2px solid transparent !important;
+    
+    /* Initial animation state */
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Staggered animation for menu items */
+  #nav-links.active li:nth-child(1) a { animation: slideInScale 0.5s ease-out 0.1s forwards; }
+  #nav-links.active li:nth-child(2) a { animation: slideInScale 0.5s ease-out 0.2s forwards; }
+  #nav-links.active li:nth-child(3) a { animation: slideInScale 0.5s ease-out 0.3s forwards; }
+  #nav-links.active li:nth-child(4) a { animation: slideInScale 0.5s ease-out 0.4s forwards; }
+  #nav-links.active li:nth-child(5) a { animation: slideInScale 0.5s ease-out 0.5s forwards; }
+  #nav-links.active li:nth-child(6) a { animation: slideInScale 0.5s ease-out 0.6s forwards; }
+  
+  /* Hover and active states */
+  #nav-links a:hover {
+    background: var(--accent-color) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3) !important;
+  }
+  
+  #nav-links a.active {
+    background: var(--accent-color) !important;
+    color: white !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4) !important;
+  }
+  
+  /* Close button when menu is active */
+  .menu-icon.active {
+    position: fixed !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    z-index: 10002 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    border-radius: 50% !important;
+    width: 55px !important;
+    height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .menu-icon.active i {
+    color: var(--text-primary) !important;
+    font-size: 1.8rem !important;
+  }
+  
+  .menu-icon.active:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.05) !important;
+  }
+  
+  /* Dark theme adjustments */
+  [data-theme="dark"] #nav-links {
+    background: rgba(15, 23, 42, 0.98) !important;
+  }
+  
+  [data-theme="dark"] #nav-links a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  [data-theme="dark"] .menu-icon.active {
+    background: rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Accessibility improvements */
+  .menu-icon:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+  
+  #nav-links a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+}
+
+/* Animation keyframes */
+@keyframes slideInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  #nav-links {
+    gap: 1rem !important;
+    padding: 1rem !important;
+  }
+  
+  #nav-links a {
+    padding: 1rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  #nav-links {
+    padding: 1.5rem !important;
+  }
+  
+  #nav-links li {
+    max-width: 280px;
+  }
+  
+  #nav-links a {
+    padding: 1.25rem 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Fix for iPhone safe areas */
+@supports (padding: max(0px)) {
+  @media (max-width: 768px) {
+    #nav-links {
+      padding-top: max(2rem, env(safe-area-inset-top)) !important;
+      padding-bottom: max(2rem, env(safe-area-inset-bottom)) !important;
+      padding-left: max(1rem, env(safe-area-inset-left)) !important;
+      padding-right: max(1rem, env(safe-area-inset-right)) !important;
+    }
+    
+    .menu-icon.active {
+      top: max(1rem, env(safe-area-inset-top)) !important;
+      right: max(1rem, env(safe-area-inset-right)) !important;
+    }
+  }
+}
