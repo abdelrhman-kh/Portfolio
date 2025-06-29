@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdel-Rhman Khamis - About</title>
+    <meta name="description" content="About Abdel-Rhman Khamis - Senior DevOps Engineer with expertise in government cloud infrastructure and DevSecOps practices">
+    <title>About - Abdel-Rhman Khamis | Senior DevOps Engineer</title>
+    
+    <link rel="preload" href="css/common.css" as="style">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <img src="media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
+            <img src="media/profile.jpg" alt="Abdel-Rhman Khamis Profile Picture" class="nav-profile-pic">
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -28,31 +35,86 @@
             </ul>
         </div>
     </nav>
+    
     <div class="container">
         <main>
-            <section id="about">
+            <section id="about" class="scroll-animate">
                 <h3>About Me</h3>
-                <p>Hi! I'm Abdel-Rhman, a Senior DevOps Engineer with over 4 years of expertise in cloud infrastructure, automation, and DevSecOps practices. Currently working at BlackStone eIT in Abu Dhabi, I specialize in architecting secure, large-scale Azure environments for government clients, implementing zero-trust principles and maintaining compliance standards for 50,000+ users.</p>
-                <p>My proven track record includes collaborating with high-profile government entities across the UAE, Saudi Arabia, and Egypt, delivering infrastructure solutions that achieve 99.9% uptime and significant efficiency improvements. I'm passionate about leveraging cutting-edge technologies like Kubernetes, Terraform, and multi-cloud architectures to solve complex enterprise challenges.</p>
-                <p>I excel in creating robust CI/CD pipelines, implementing DevSecOps practices, and building scalable ERP systems on AWS, Azure, and Oracle Cloud platforms. My expertise spans from government healthcare platforms to entertainment industry solutions, always focusing on security, reliability, and performance optimization.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hi! I'm Abdel-Rhman, a Senior DevOps Engineer with over 4 years of expertise in cloud infrastructure, automation, and DevSecOps practices. Currently working at BlackStone eIT in Abu Dhabi, I specialize in architecting secure, large-scale Azure environments for government clients, implementing zero-trust principles and maintaining compliance standards for 50,000+ users.</p>
+                        
+                        <p>My proven track record includes collaborating with high-profile government entities across the UAE, Saudi Arabia, and Egypt, delivering infrastructure solutions that achieve 99.9% uptime and significant efficiency improvements. I'm passionate about leveraging cutting-edge technologies like Kubernetes, Terraform, and multi-cloud architectures to solve complex enterprise challenges.</p>
+                        
+                        <p>I excel in creating robust CI/CD pipelines, implementing DevSecOps practices, and building scalable ERP systems on AWS, Azure, and Oracle Cloud platforms. My expertise spans from government healthcare platforms to entertainment industry solutions, always focusing on security, reliability, and performance optimization.</p>
+                    </div>
+                    
+                    <div class="about-highlights">
+                        <h4>Professional Focus</h4>
+                        <ul>
+                            <li><i class="fas fa-shield-alt"></i> Government Sector DevSecOps</li>
+                            <li><i class="fas fa-cloud"></i> Multi-Cloud Architecture</li>
+                            <li><i class="fas fa-lock"></i> Zero-Trust Security</li>
+                            <li><i class="fas fa-cogs"></i> Infrastructure as Code</li>
+                            <li><i class="fas fa-rocket"></i> Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Journey Timeline -->
+                <div class="journey-timeline">
+                    <h4>My DevOps Journey</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-content">
+                                <h5>Senior DevOps Engineer</h5>
+                                <p>Leading government infrastructure projects at BlackStone eIT</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023</div>
+                            <div class="timeline-content">
+                                <h5>DevSecOps Specialization</h5>
+                                <p>Focused on security-first infrastructure for enterprise clients</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021</div>
+                            <div class="timeline-content">
+                                <h5>DevOps Engineer</h5>
+                                <p>Transitioned from System Administration to DevOps practices</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019</div>
+                            <div class="timeline-content">
+                                <h5>System Administrator</h5>
+                                <p>Started career in infrastructure and system management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
+        
         <footer>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
-                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
-                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
-                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
-                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201153015763" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; 2025 Abdel-Rhman Khamis. All rights reserved.</p>
         </footer>
-        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+        
+        <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
     </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/performance.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/about.js"></script>
 </body>
 </html>

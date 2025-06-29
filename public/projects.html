@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdel-Rhman Khamis - Projects</title>
+    <meta name="description" content="DevOps and DevSecOps projects by Abdel-Rhman Khamis - Infrastructure automation, cloud deployments, and enterprise solutions">
+    <title>Projects - Abdel-Rhman Khamis | Senior DevOps Engineer</title>
+    
+    <link rel="preload" href="css/common.css" as="style">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <img src="media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
+            <img src="media/profile.jpg" alt="Abdel-Rhman Khamis Profile Picture" class="nav-profile-pic">
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -36,34 +43,86 @@
                     <div class="project-item">
                         <h4><a href="https://dub.ai/en/omp/" target="_blank"><i class="fas fa-external-link-alt"></i> Dubai Future Foundation - One Million Prompts</a></h4>
                         <p>Architected DevSecOps infrastructure with Kubernetes for Dubai's groundbreaking AI platform, implementing GitOps workflows, blue-green deployments, and auto-scaling for seamless performance. Enhanced disaster recovery capabilities and monitoring systems.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">DevSecOps</span>
+                            <span class="project-tag">GitOps</span>
+                            <span class="project-tag">Azure</span>
+                            <span class="project-tag">AI Platform</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="https://mshfakwt.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Mshfa - SaaS Healthcare Platform</a></h4>
                         <p>Integrated DevSecOps and GitOps with Kubernetes to automate and secure deployments for Kuwait's leading healthcare platform. Ensured HIPAA compliance, 99.9% availability, and implemented comprehensive monitoring for critical medical services.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">HIPAA Compliance</span>
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Zero-downtime</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="https://sea.sa/" target="_blank"><i class="fas fa-external-link-alt"></i> Saudi Esports Federation Academy</a></h4>
                         <p>Implemented secure, scalable infrastructure for Saudi Arabia's national esports platform with DevSecOps practices. Deployed zero-downtime releases, auto-scaling capabilities, and comprehensive monitoring to handle massive concurrent users during tournaments.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Government</span>
+                            <span class="project-tag">Auto-scaling</span>
+                            <span class="project-tag">Zero-downtime</span>
+                            <span class="project-tag">Oracle Cloud</span>
+                            <span class="project-tag">High Availability</span>
+                        </div>
                     </div>
                     <div class="project-item">
-                        <h4><a href="https://github.com/abdelrhman-kh/Terraform-Azure-PrivateInfra" target="_blank"><i class="fab fa-github"></i> Azure Private Infrastructure</a></h4>
+                        <h4><a href="projects/project_terraform_azure_private_infra.html"><i class="fab fa-github"></i> Azure Private Infrastructure</a></h4>
                         <p>Designed production-ready Azure infrastructure with App Services, MySQL, Redis, Blob Storage, and Application Gateway. Emphasized security and scalability through private networking and zero-trust architecture principles.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Terraform</span>
+                            <span class="project-tag">Azure</span>
+                            <span class="project-tag">Zero-trust</span>
+                            <span class="project-tag">Private Network</span>
+                            <span class="project-tag">IaC</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="projects/project_kubernetes_on_premise.html"><i class="fab fa-github"></i> Kubernetes On-Premise</a></h4>
                         <p>Automated on-premises Kubernetes cluster installation with essential assets like Flannel, Dashboard, MetalLB, and Metrics Server. Streamlined deployment processes and reduced setup complexity for enterprise environments.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">On-Premise</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">MetalLB</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="projects/project_run_sql_script_program.html"><i class="fab fa-github"></i> SQL Script Management Tool</a></h4>
                         <p>Enhanced database management with a .NET MVC 6.0 application for managing MSSQL connection strings and executing scripts efficiently. Improved database deployment workflows and reduced manual errors.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">.NET Core</span>
+                            <span class="project-tag">MSSQL</span>
+                            <span class="project-tag">Database</span>
+                            <span class="project-tag">Automation</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="projects/project_terraform_create_ec2_instance.html"><i class="fab fa-github"></i> Terraform EC2 Automation</a></h4>
                         <p>Created comprehensive Terraform project to automate EC2 instance creation and configuration, streamlining AWS infrastructure deployment and reducing setup time by 50% for development teams.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Terraform</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">EC2</span>
+                            <span class="project-tag">Infrastructure</span>
+                        </div>
                     </div>
                     <div class="project-item">
                         <h4><a href="projects/project_lambda_function_notified_sns_subscription.html"><i class="fab fa-github"></i> Lambda SNS Monitoring</a></h4>
                         <p>Developed AWS Lambda function to monitor CloudWatch logs and trigger SNS notifications upon activity, enhancing monitoring and alerting capabilities for distributed systems and improving incident response times.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS Lambda</span>
+                            <span class="project-tag">CloudWatch</span>
+                            <span class="project-tag">SNS</span>
+                            <span class="project-tag">Monitoring</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -84,6 +143,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="js/main.js"></script>
+    <script src="js/performance.js"></script>
     <script src="js/projects.js"></script>
 </body>
 </html>

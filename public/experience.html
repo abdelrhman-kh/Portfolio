@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdel-Rhman Khamis - Experience</title>
+    <meta name="description" content="Professional experience of Abdel-Rhman Khamis - Senior DevOps Engineer with government and enterprise expertise">
+    <title>Experience - Abdel-Rhman Khamis | Senior DevOps Engineer</title>
+    
+    <link rel="preload" href="css/common.css" as="style">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <img src="media/profile.jpg" alt="Profile Picture" class="nav-profile-pic">
+            <img src="media/profile.jpg" alt="Abdel-Rhman Khamis Profile Picture" class="nav-profile-pic">
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -28,53 +35,212 @@
             </ul>
         </div>
     </nav>
+    
     <div class="container">
         <main>
-            <section id="experience">
-                <h3>Experience</h3>
-                <div class="experience-item">
-                    <h4>Senior DevOps Engineer - BlackStone eIT</h4>
-                    <span>(Feb 2025 - Present) • Abu Dhabi, UAE</span>
-                    <p>Architect secure, large-scale Azure environments for government clients, implementing zero-trust principles for 50,000+ users. Collaborate with UAE Government stakeholders, delivering solutions that improved system efficiency by 25% with 99.9% uptime. Leading DevSecOps initiatives for Abu Dhabi Housing Authority and other critical government infrastructure projects.</p>
+            <!-- Career Stats Section -->
+            <section class="career-stats scroll-animate">
+                <div class="stat-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>4+</h3>
+                    <p>Years DevOps Experience</p>
                 </div>
-                <div class="experience-item">
-                    <h4>DevOps Engineer - Meem Development</h4>
-                    <span>(Nov 2023 - Mar 2025) • Alexandria, Egypt</span>
-                    <p>Engineered CI/CD pipelines using GitHub Actions, Jenkins, and Azure DevOps, reducing deployment time by 40%. Built scalable ERP systems on AWS and Oracle Cloud with DevSecOps practices, serving 3+ government projects with 99.9% availability. Led infrastructure automation for Saudi Government, Dubai Future Foundation, and healthcare platforms, implementing GitOps workflows and blue-green deployments.</p>
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>5</h3>
+                    <p>Companies Worked</p>
                 </div>
-                <div class="experience-item">
-                    <h4>DevOps Engineer - Andalusia Healthcare Business Solutions</h4>
-                    <span>(Oct 2022 - Nov 2023) • Alexandria, Egypt</span>
-                    <p>Managed TFS Server for enterprise CI/CD with blue-green and canary deployment strategies, reducing deployment time by 25%. Developed horizontally scalable ERP architecture on AWS, supporting multiple Scrum teams and improving development productivity by 20%. Specialized in healthcare compliance and HIPAA-compliant infrastructure design.</p>
+                <div class="stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>15+</h3>
+                    <p>Major Projects Delivered</p>
                 </div>
-                <div class="experience-item">
-                    <h4>DevOps Engineer - Code Zone</h4>
-                    <span>(Sep 2021 - Sep 2022) • Alexandria, Egypt</span>
-                    <p>Administered Azure DevOps Server for CI/CD, executing blue-green and canary deployments. Deployed Docker and Kubernetes on DigitalOcean, automated infrastructure provisioning with 50% setup time reduction. Handled AWS Lambda functions and .NET Core 6.0 services, improving system performance significantly.</p>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>50K+</h3>
+                    <p>Users Supported</p>
                 </div>
-                <div class="experience-item">
-                    <h4>System Administrator - Code Zone</h4>
-                    <span>(Jul 2019 - Sep 2021) • Alexandria, Egypt</span>
-                    <p>Optimized network infrastructure, VoIP systems, and email servers, enhancing communication efficiency. Deployed and maintained ERP systems, network infrastructure, and security protocols, improving operational efficiency. Established foundation skills in system administration that evolved into DevOps expertise.</p>
+            </section>
+            
+            <section id="experience" class="scroll-animate">
+                <h3>Professional Experience</h3>
+                
+                <div class="experience-timeline">
+                    <div class="experience-item current-role">
+                        <div class="company-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Senior DevOps Engineer - BlackStone eIT <span>(Feb 2025 - Present) • Abu Dhabi, UAE</span></h4>
+                        <p>Architect secure, large-scale Azure environments for government clients, implementing zero-trust principles for 50,000+ users. Collaborate with UAE Government stakeholders, delivering solutions that improved system efficiency by 25% with 99.9% uptime. Leading DevSecOps initiatives for Abu Dhabi Housing Authority and other critical government infrastructure projects.</p>
+                        
+                        <div class="achievements">
+                            <h5><i class="fas fa-trophy"></i> Key Achievements</h5>
+                            <ul>
+                                <li>Implemented zero-trust architecture for 50,000+ government users</li>
+                                <li>Achieved 99.9% uptime for critical housing authority systems</li>
+                                <li>Led DevSecOps transformation for UAE government clients</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="role-skills">
+                            <h5>Technologies Used:</h5>
+                            <div class="skill-badges">
+                                <span class="skill-badge">Azure</span>
+                                <span class="skill-badge">Kubernetes</span>
+                                <span class="skill-badge">Zero-Trust</span>
+                                <span class="skill-badge">DevSecOps</span>
+                                <span class="skill-badge">Government Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>DevOps Engineer - Meem Development <span>(Nov 2023 - Mar 2025) • Alexandria, Egypt</span></h4>
+                        <p>Engineered CI/CD pipelines using GitHub Actions, Jenkins, and Azure DevOps, reducing deployment time by 40%. Built scalable ERP systems on AWS and Oracle Cloud with DevSecOps practices, serving 3+ government projects with 99.9% availability. Led infrastructure automation for Saudi Government, Dubai Future Foundation, and healthcare platforms, implementing GitOps workflows and blue-green deployments.</p>
+                        
+                        <div class="achievements">
+                            <h5><i class="fas fa-trophy"></i> Key Achievements</h5>
+                            <ul>
+                                <li>Reduced deployment time by 40% across all projects</li>
+                                <li>Delivered infrastructure for Dubai Future Foundation AI platform</li>
+                                <li>Implemented HIPAA-compliant healthcare platform (Mshfa)</li>
+                                <li>Managed Saudi Government esports federation infrastructure</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="role-skills">
+                            <h5>Technologies Used:</h5>
+                            <div class="skill-badges">
+                                <span class="skill-badge">AWS</span>
+                                <span class="skill-badge">Oracle Cloud</span>
+                                <span class="skill-badge">GitHub Actions</span>
+                                <span class="skill-badge">Jenkins</span>
+                                <span class="skill-badge">GitOps</span>
+                                <span class="skill-badge">Blue-Green Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>DevOps Engineer - Andalusia Healthcare Business Solutions <span>(Oct 2022 - Nov 2023) • Alexandria, Egypt</span></h4>
+                        <p>Managed TFS Server for enterprise CI/CD with blue-green and canary deployment strategies, reducing deployment time by 25%. Developed horizontally scalable ERP architecture on AWS, supporting multiple Scrum teams and improving development productivity by 20%. Specialized in healthcare compliance and HIPAA-compliant infrastructure design.</p>
+                        
+                        <div class="achievements">
+                            <h5><i class="fas fa-trophy"></i> Key Achievements</h5>
+                            <ul>
+                                <li>Implemented enterprise CI/CD with 25% faster deployments</li>
+                                <li>Designed HIPAA-compliant healthcare infrastructure</li>
+                                <li>Improved team productivity by 20% through automation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="role-skills">
+                            <h5>Technologies Used:</h5>
+                            <div class="skill-badges">
+                                <span class="skill-badge">TFS Server</span>
+                                <span class="skill-badge">AWS</span>
+                                <span class="skill-badge">Blue-Green Deployment</span>
+                                <span class="skill-badge">Canary Deployment</span>
+                                <span class="skill-badge">Healthcare Compliance</span>
+                                <span class="skill-badge">Scrum/Agile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>DevOps Engineer - Code Zone <span>(Sep 2021 - Sep 2022) • Alexandria, Egypt</span></h4>
+                        <p>Administered Azure DevOps Server for CI/CD, executing blue-green and canary deployments. Deployed Docker and Kubernetes on DigitalOcean, automated infrastructure provisioning with 50% setup time reduction. Handled AWS Lambda functions and .NET Core 6.0 services, improving system performance significantly.</p>
+                        
+                        <div class="achievements">
+                            <h5><i class="fas fa-trophy"></i> Key Achievements</h5>
+                            <ul>
+                                <li>Reduced infrastructure setup time by 50% through automation</li>
+                                <li>Implemented containerized deployments on DigitalOcean</li>
+                                <li>Automated CI/CD processes with Azure DevOps</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="role-skills">
+                            <h5>Technologies Used:</h5>
+                            <div class="skill-badges">
+                                <span class="skill-badge">Azure DevOps</span>
+                                <span class="skill-badge">Docker</span>
+                                <span class="skill-badge">Kubernetes</span>
+                                <span class="skill-badge">DigitalOcean</span>
+                                <span class="skill-badge">AWS Lambda</span>
+                                <span class="skill-badge">.NET Core</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>System Administrator - Code Zone <span>(Jul 2019 - Sep 2021) • Alexandria, Egypt</span></h4>
+                        <p>Optimized network infrastructure, VoIP systems, and email servers, enhancing communication efficiency. Deployed and maintained ERP systems, network infrastructure, and security protocols, improving operational efficiency. Established foundation skills in system administration that evolved into DevOps expertise.</p>
+                        
+                        <div class="achievements">
+                            <h5><i class="fas fa-trophy"></i> Key Achievements</h5>
+                            <ul>
+                                <li>Improved network reliability and communication systems</li>
+                                <li>Successfully managed enterprise ERP deployments</li>
+                                <li>Built strong foundation in infrastructure management</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="role-skills">
+                            <h5>Technologies Used:</h5>
+                            <div class="skill-badges">
+                                <span class="skill-badge">Windows Server</span>
+                                <span class="skill-badge">Exchange Server</span>
+                                <span class="skill-badge">VoIP Systems</span>
+                                <span class="skill-badge">Network Administration</span>
+                                <span class="skill-badge">ERP Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="experience-cta">
+                <h4>Ready to Collaborate?</h4>
+                <p>Let's discuss how my extensive DevOps experience can benefit your organization</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button primary"><i class="fas fa-envelope"></i> Get In Touch</a>
+                    <a href="projects.html" class="cta-button"><i class="fas fa-folder-open"></i> View My Projects</a>
+                    <a href="skills.html" class="cta-button"><i class="fas fa-cogs"></i> Technical Skills</a>
                 </div>
             </section>
         </main>
+        
         <footer>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
-                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
-                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
-                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
-                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201153015763" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; 2025 Abdel-Rhman Khamis. All rights reserved.</p>
         </footer>
-        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+        
+        <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
     </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/performance.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/experience.js"></script>
 </body>
 </html>

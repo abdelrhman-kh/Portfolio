@@ -3,13 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdel-Rhman Khamis - Contact</title>
+    <title>Contact - Abdel-Rhman Khamis</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
-    <link rel="icon" href="media/favicon.ico" type="image/x-icon">
+    <style>
+        /* Additional styles specific to contact page */
+        
+        /* Contact Section */
+        #contact {
+            padding: 2rem 0;
+        }
+        
+        #contact h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Contact Methods */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .contact-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+            height: auto;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4f46e5, #667eea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .contact-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .contact-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .contact-link:hover {
+            background: rgba(79, 70, 229, 0.1);
+        }
+        
+        /* Dark Theme Styles */
+        [data-theme="dark"] {
+            background: #0f172a;
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] body {
+            background: #0f172a !important;
+            color: #f9fafb !important;
+        }
+        
+        [data-theme="dark"] nav {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom-color: #374151;
+        }
+        
+        [data-theme="dark"] #nav-links a {
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .contact-card {
+            background: #1e293b;
+            border-color: #374151;
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .contact-card h3 {
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .contact-card p {
+            color: #d1d5db;
+        }
+        
+        [data-theme="dark"] .contact-form-section {
+            background: #1e293b;
+            border-color: #374151;
+        }
+        
+        [data-theme="dark"] .contact-form-section h2 {
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .form-group label {
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group select,
+        [data-theme="dark"] .form-group textarea {
+            background: #0f172a;
+            border-color: #374151;
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group select:focus,
+        [data-theme="dark"] .form-group textarea:focus {
+            border-color: #4f46e5;
+        }
+        
+        /* Form message styles */
+        .form-message {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        
+        /* Contact Form */
+        .contact-form-section {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group label i {
+            color: #4f46e5;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #4f46e5, #667eea);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Availability Section */
+        .availability-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .availability-section h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .availability-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .availability-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .availability-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: #4f46e5;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            
+            #nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            #nav-links.active {
+                display: flex;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .availability-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 100px 1rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -28,37 +386,134 @@
             </ul>
         </div>
     </nav>
+    
     <div class="container">
         <main>
             <section id="contact">
-                <h3>Message Me</h3>
-                <form class="contact-form" action="mailto:Abdelrhman.khamis.alex@gmail.com" method="post" enctype="text/plain">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                    <input type="submit" value="Send">
-                </form>
+                <h1><i class="fas fa-envelope"></i> Get In Touch</h1>
+                <p class="contact-intro">Ready to discuss your next DevSecOps project? Let's connect and explore how I can help secure and scale your infrastructure.</p>
+                
+                <!-- Contact Methods -->
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>For project inquiries and collaboration</p>
+                        <a href="mailto:Abdelrhman.khamis.alex@gmail.com" class="contact-link">
+                            Abdelrhman.khamis.alex@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Connect for professional networking</p>
+                        <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank" class="contact-link">
+                            /in/abdel-rhman-kh
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Quick discussions and consultations</p>
+                        <a href="https://wa.me/201153015763" target="_blank" class="contact-link">
+                            +20 115 301 5763
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>Direct consultation calls</p>
+                        <a href="tel:+201153015763" class="contact-link">
+                            +20 115 301 5763
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" action="mailto:Abdelrhman.khamis.alex@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@company.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company"><i class="fas fa-building"></i> Company/Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Your company or organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-type"><i class="fas fa-tags"></i> Project Type</label>
+                            <select id="project-type" name="project-type">
+                                <option value="">Select project type</option>
+                                <option value="DevSecOps Implementation">DevSecOps Implementation</option>
+                                <option value="Cloud Migration">Cloud Migration</option>
+                                <option value="Infrastructure Audit">Infrastructure Audit</option>
+                                <option value="Government Compliance">Government Compliance</option>
+                                <option value="CI/CD Pipeline">CI/CD Pipeline Setup</option>
+                                <option value="Zero-Trust Architecture">Zero-Trust Architecture</option>
+                                <option value="Consultation">General Consultation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Project Details</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project requirements, timeline, and how I can help..." rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Availability Section -->
+                <div class="availability-section">
+                    <h2><i class="fas fa-calendar-check"></i> Availability</h2>
+                    <p>Currently available for new projects and consultations. Based in Alexandria, Egypt (GMT+2) with flexible hours for international clients.</p>
+                    <div class="availability-tags">
+                        <span class="availability-tag">✅ Available for Projects</span>
+                        <span class="availability-tag">🌍 Remote Work</span>
+                        <span class="availability-tag">🕒 Flexible Hours</span>
+                        <span class="availability-tag">🏛️ Government Sector</span>
+                    </div>
+                </div>
             </section>
         </main>
+        
         <footer>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank"><i class="fab fa-linkedin" data-tippy-content="LinkedIn"></i></a>
-                <a href="https://github.com/abdelrhman-kh" target="_blank"><i class="fab fa-github" data-tippy-content="GitHub"></i></a>
-                <a href="mailto:Abdelrhman.khamis.alex@gmail.com"><i class="fas fa-envelope" data-tippy-content="Email"></i></a>
-                <a href="tel:+201153015763"><i class="fas fa-phone-alt" data-tippy-content="Phone"></i></a>
-                <a href="https://wa.me/201153015763" target="_blank"><i class="fab fa-whatsapp" data-tippy-content="WhatsApp"></i></a>
+                <a href="https://www.linkedin.com/in/abdel-rhman-kh/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/abdelrhman-kh" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:Abdelrhman.khamis.alex@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201153015763" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/201153015763" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; 2025 Abdel-Rhman Khamis. All rights reserved.</p>
         </footer>
-        <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
+
 </body>
 </html>

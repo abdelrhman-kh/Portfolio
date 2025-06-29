@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://abdelrhman.khamis.work/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow unnecessary files
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.pdf
+Disallow: /media/favicon.ico
