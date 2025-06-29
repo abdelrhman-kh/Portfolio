@@ -20,6 +20,21 @@
     color: #333 !important;
   }
   
+  /* FORCE CORRECT ICON ON SKILLS PAGE */
+  .menu-icon i.fas {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    display: inline-block !important;
+  }
+  
+  .menu-icon i.fa-bars:before {
+    content: "\f0c9" !important;
+  }
+  
+  .menu-icon i.fa-times:before {
+    content: "\f00d" !important;
+  }
+  
   /* HIDE DESKTOP MENU */
   #nav-links {
     display: none !important;

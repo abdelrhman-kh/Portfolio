@@ -1,1 +1,126 @@
-// SKILLS PAGE MOBILE MENU FIX\n// Emergency override for Skills page specifically\n\nconsole.log('🛠️ Skills page mobile menu override loaded');\n\n// Wait for everything to load, then force fix the menu\nwindow.addEventListener('load', function() {\n    console.log('🔧 Applying Skills page menu fix...');\n    \n    // Find the menu icon\n    const menuIcon = document.querySelector('.menu-icon');\n    const navLinks = document.getElementById('nav-links');\n    const body = document.body;\n    \n    if (!menuIcon) {\n        console.error('❌ Menu icon not found on Skills page');\n        return;\n    }\n    \n    if (!navLinks) {\n        console.error('❌ Nav links not found on Skills page');\n        return;\n    }\n    \n    console.log('✅ Elements found, setting up Skills page menu');\n    \n    // Remove ALL existing event handlers\n    const newMenuIcon = menuIcon.cloneNode(true);\n    menuIcon.parentNode.replaceChild(newMenuIcon, menuIcon);\n    \n    // Remove onclick attribute\n    newMenuIcon.removeAttribute('onclick');\n    \n    // Simple toggle function for Skills page\n    function skillsToggleMenu() {\n        console.log('🎯 Skills menu toggle called');\n        \n        const isOpen = navLinks.classList.contains('active');\n        const iconElement = newMenuIcon.querySelector('i');\n        \n        if (isOpen) {\n            // Close\n            navLinks.classList.remove('active');\n            newMenuIcon.classList.remove('active');\n            body.classList.remove('menu-open');\n            if (iconElement) iconElement.className = 'fas fa-bars';\n            console.log('🔒 Skills menu closed');\n        } else {\n            // Open\n            navLinks.classList.add('active');\n            newMenuIcon.classList.add('active');\n            body.classList.add('menu-open');\n            if (iconElement) iconElement.className = 'fas fa-times';\n            console.log('🔓 Skills menu opened');\n        }\n    }\n    \n    // Add fresh click listener\n    newMenuIcon.addEventListener('click', function(e) {\n        e.preventDefault();\n        e.stopPropagation();\n        console.log('🖱️ Skills menu icon clicked');\n        skillsToggleMenu();\n    });\n    \n    // Add listeners to menu links\n    const menuLinks = navLinks.querySelectorAll('a');\n    menuLinks.forEach(function(link) {\n        link.addEventListener('click', function() {\n            setTimeout(function() {\n                navLinks.classList.remove('active');\n                newMenuIcon.classList.remove('active');\n                body.classList.remove('menu-open');\n                const iconElement = newMenuIcon.querySelector('i');\n                if (iconElement) iconElement.className = 'fas fa-bars';\n            }, 100);\n        });\n    });\n    \n    console.log('✅ Skills page mobile menu fixed and ready!');\n});\n\n// Also try immediate fix in case load event already fired\nsetTimeout(function() {\n    if (document.readyState === 'complete') {\n        console.log('🔄 Document already loaded, applying immediate fix');\n        window.dispatchEvent(new Event('load'));\n    }\n}, 100);\n
+// SKILLS PAGE MOBILE MENU FIX
+// Emergency override for Skills page specifically
+
+console.log('🛠️ Skills page mobile menu override loaded');
+
+// Force fix immediately when script loads
+(function() {
+    function applySkillsFix() {
+        console.log('🔧 Applying Skills page menu fix...');
+        
+        // Find the menu icon
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        const body = document.body;
+        
+        if (!menuIcon) {
+            console.error('❌ Menu icon not found on Skills page');
+            return false;
+        }
+        
+        if (!navLinks) {
+            console.error('❌ Nav links not found on Skills page');
+            return false;
+        }
+        
+        console.log('✅ Elements found, setting up Skills page menu');
+        
+        // Force the correct icon class
+        const iconElement = menuIcon.querySelector('i');
+        if (iconElement) {
+            iconElement.className = 'fas fa-bars';
+            console.log('🔧 Forced icon to fa-bars');
+        }
+        
+        // Remove ALL existing event handlers by cloning
+        const newMenuIcon = menuIcon.cloneNode(true);
+        menuIcon.parentNode.replaceChild(newMenuIcon, menuIcon);
+        
+        // Remove onclick attribute
+        newMenuIcon.removeAttribute('onclick');
+        
+        // Ensure the icon is still correct after cloning
+        const newIconElement = newMenuIcon.querySelector('i');
+        if (newIconElement) {
+            newIconElement.className = 'fas fa-bars';
+        }
+        
+        // Simple toggle function for Skills page
+        function skillsToggleMenu() {
+            console.log('🎯 Skills menu toggle called');
+            
+            const isOpen = navLinks.classList.contains('active');
+            const iconEl = newMenuIcon.querySelector('i');
+            
+            if (isOpen) {
+                // Close
+                navLinks.classList.remove('active');
+                newMenuIcon.classList.remove('active');
+                body.classList.remove('menu-open');
+                if (iconEl) {
+                    iconEl.className = 'fas fa-bars';
+                    console.log('🔧 Set icon to bars (close)');
+                }
+                console.log('🔒 Skills menu closed');
+            } else {
+                // Open
+                navLinks.classList.add('active');
+                newMenuIcon.classList.add('active');
+                body.classList.add('menu-open');
+                if (iconEl) {
+                    iconEl.className = 'fas fa-times';
+                    console.log('🔧 Set icon to times (open)');
+                }
+                console.log('🔓 Skills menu opened');
+            }
+        }
+        
+        // Add fresh click listener
+        newMenuIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🖱️ Skills menu icon clicked');
+            skillsToggleMenu();
+        });
+        
+        // Add listeners to menu links
+        const menuLinks = navLinks.querySelectorAll('a');
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(function() {
+                    navLinks.classList.remove('active');
+                    newMenuIcon.classList.remove('active');
+                    body.classList.remove('menu-open');
+                    const iconEl = newMenuIcon.querySelector('i');
+                    if (iconEl) iconEl.className = 'fas fa-bars';
+                }, 100);
+            });
+        });
+        
+        console.log('✅ Skills page mobile menu fixed and ready!');
+        return true;
+    }
+    
+    // Try immediate fix
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applySkillsFix);
+    } else {
+        applySkillsFix();
+    }
+    
+    // Also try after window load
+    window.addEventListener('load', function() {
+        setTimeout(applySkillsFix, 100);
+    });
+    
+    // Final fallback - try after 1 second
+    setTimeout(function() {
+        const menuIcon = document.querySelector('.menu-icon');
+        if (menuIcon && !menuIcon.hasAttribute('data-skills-fixed')) {
+            console.log('🔄 Final fallback attempt for Skills menu');
+            if (applySkillsFix()) {
+                menuIcon.setAttribute('data-skills-fixed', 'true');
+            }
+        }
+    }, 1000);
+})();
