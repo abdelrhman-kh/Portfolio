@@ -49,7 +49,10 @@
     width: 100vw !important;
     height: 100vh !important;
     background: #1a202c !important;
+    background: rgba(26, 32, 44, 1) !important;
     z-index: 99999 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     padding: 60px 20px 20px 20px !important;
     box-sizing: border-box !important;
     overflow-y: auto !important;
@@ -154,37 +157,42 @@
     height: 100% !important;
   }
   
-  /* HIDE ALL CONTENT WHEN MENU IS OPEN - AGGRESSIVE APPROACH */
-  body.menu-open > * {
+  /* ENSURE COMPLETE BACKGROUND COVERAGE */
+  #nav-links.active::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #1a202c !important;
+    z-index: -1 !important;
+  }
+  
+  /* HIDE ALL CONTENT WHEN MENU IS OPEN - ENHANCED */
+  body.menu-open > *:not(nav) {
+    display: none !important;
     visibility: hidden !important;
   }
   
-  /* EXCEPT NAVIGATION */
+  /* ENSURE NAVIGATION IS ALWAYS VISIBLE */
   body.menu-open nav,
   body.menu-open nav *,
   body.menu-open #nav-links,
   body.menu-open #nav-links *,
   body.menu-open .menu-icon,
   body.menu-open .menu-icon * {
+    display: flex !important;
     visibility: visible !important;
   }
   
-  /* ADDITIONAL CONTENT HIDING */
-  body.menu-open .container,
-  body.menu-open main,
-  body.menu-open section,
-  body.menu-open footer,
-  body.menu-open .hero,
-  body.menu-open #about,
-  body.menu-open #experience,
-  body.menu-open #skills,
-  body.menu-open #projects,
-  body.menu-open #contact,
-  body.menu-open .stats-section,
-  body.menu-open .career-stats,
-  body.menu-open .contact-methods,
-  body.menu-open .availability-section {
-    display: none !important;
+  /* FORCE SOLID BACKGROUND */
+  body.menu-open {
+    background: #1a202c !important;
+  }
+  
+  body.menu-open nav {
+    background: transparent !important;
   }
 }
 
