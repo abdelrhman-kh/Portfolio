@@ -4,7 +4,26 @@
 (function() {
     'use strict';
     
-    // Simple toggle function
+    // Browser detection functions
+    function isiOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    
+    function isAndroid() {
+        return /Android/.test(navigator.userAgent);
+    }
+    
+    function isMobileSafari() {
+        return isiOS() && /Safari/.test(navigator.userAgent) && !/CriOS/.test(navigator.userAgent);
+    }
+    
+    // Viewport height fix for mobile browsers
+    function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Simple toggle function with iOS/Android fixes
     function toggleMobileMenu() {
         console.log('🍔 Mobile menu toggle called');
         
@@ -34,6 +53,16 @@
             menuIcon.classList.remove('active');
             body.classList.remove('menu-open');
             menuIconI.className = 'fas fa-bars';
+            
+            // iOS Safari specific fixes
+            if (isiOS()) {
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.style.height = '';
+                    body.style.height = '';
+                }, 100);
+            }
+            
             console.log('🔒 Menu closed');
         } else {
             // Open menu
@@ -41,6 +70,13 @@
             menuIcon.classList.add('active');
             body.classList.add('menu-open');
             menuIconI.className = 'fas fa-times';
+            
+            // iOS Safari specific fixes
+            if (isiOS()) {
+                document.documentElement.style.height = '100%';
+                body.style.height = '100%';
+            }
+            
             console.log('🔓 Menu opened');
         }
     }
@@ -66,6 +102,17 @@
     // Initialize when DOM loads
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Simple mobile menu loaded on:', window.location.pathname);
+        
+        // Set initial viewport height
+        setViewportHeight();
+        
+        // Browser detection logging
+        console.log('📱 Browser detection:', {
+            iOS: isiOS(),
+            Android: isAndroid(),
+            MobileSafari: isMobileSafari(),
+            UserAgent: navigator.userAgent
+        });
     
     // Hide loading screen if it exists to prevent interference
     const loadingScreen = document.querySelector('.loading-screen');
@@ -84,13 +131,21 @@
             // Remove any existing onclick
             menuIcon.removeAttribute('onclick');
             
-            // Add click listener
+            // Add both click and touch listeners for cross-browser compatibility
             menuIcon.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('🖱️ Menu icon clicked');
                 toggleMobileMenu();
             });
+            
+            // Add touch event for better mobile responsiveness
+            menuIcon.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('👆 Menu icon touched');
+                toggleMobileMenu();
+            }, { passive: false });
         } else {
             console.error('❌ Menu icon not found');
         }
@@ -115,11 +170,20 @@
             }
         });
         
-        // Close on window resize
+        // Close on window resize and update viewport height
         window.addEventListener('resize', function() {
+            setViewportHeight();
             if (window.innerWidth > 768) {
                 closeMobileMenu();
             }
+        });
+        
+        // Handle orientation change for mobile devices
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                setViewportHeight();
+                closeMobileMenu();
+            }, 100);
         });
         
         // Close when clicking outside menu
