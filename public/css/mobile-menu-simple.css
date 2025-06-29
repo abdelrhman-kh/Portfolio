@@ -117,6 +117,39 @@
     width: 100% !important;
     height: 100% !important;
   }
+  
+  /* HIDE ALL CONTENT WHEN MENU IS OPEN - AGGRESSIVE APPROACH */
+  body.menu-open > * {
+    visibility: hidden !important;
+  }
+  
+  /* EXCEPT NAVIGATION */
+  body.menu-open nav,
+  body.menu-open nav *,
+  body.menu-open #nav-links,
+  body.menu-open #nav-links *,
+  body.menu-open .menu-icon,
+  body.menu-open .menu-icon * {
+    visibility: visible !important;
+  }
+  
+  /* ADDITIONAL CONTENT HIDING */
+  body.menu-open .container,
+  body.menu-open main,
+  body.menu-open section,
+  body.menu-open footer,
+  body.menu-open .hero,
+  body.menu-open #about,
+  body.menu-open #experience,
+  body.menu-open #skills,
+  body.menu-open #projects,
+  body.menu-open #contact,
+  body.menu-open .stats-section,
+  body.menu-open .career-stats,
+  body.menu-open .contact-methods,
+  body.menu-open .availability-section {
+    display: none !important;
+  }
 }
 
 /* Very small screens */
