@@ -179,11 +179,13 @@ function initMobileMenu() {
     const navLinks = document.getElementById('nav-links');
     
     if (menuIcon && navLinks) {
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuIcon.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        // Ensure toggleMenu is available immediately
+        window.toggleMenu = toggleMenu;
+        
+        // Also add click event listener as backup
+        menuIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleMenu();
         });
 
         // Close menu when clicking on a link
@@ -191,11 +193,76 @@ function initMobileMenu() {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 const icon = menuIcon.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             });
         });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuIcon.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = menuIcon.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = menuIcon.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
     }
+}
+
+// Universal toggleMenu function
+function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    const menuIcon = document.querySelector('.menu-icon i');
+    
+    if (navLinks && menuIcon) {
+        navLinks.classList.toggle('active');
+        
+        if (navLinks.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            
+            // Ensure proper z-index for mobile menu
+            navLinks.style.zIndex = '1001';
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            
+            // Reset z-index
+            navLinks.style.zIndex = '';
+        }
+    } else {
+        // Fallback for missing elements
+        console.warn('Mobile menu elements not found');
+    }
+}
+
+// Make toggleMenu available globally for onclick handlers
+window.toggleMenu = toggleMenu;
+
+// Initialize immediately in case DOM is already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.toggleMenu = toggleMenu;
+    });
+} else {
+    window.toggleMenu = toggleMenu;
 }
 
 // Typing Animation for Hero Title

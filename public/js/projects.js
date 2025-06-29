@@ -377,21 +377,7 @@ function updateProjectCount() {
     }
 }
 
-// Enhanced mobile menu functionality
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    const menuIcon = document.querySelector('.menu-icon i');
-    
-    navLinks.classList.toggle('active');
-    
-    if (navLinks.classList.contains('active')) {
-        menuIcon.classList.remove('fa-bars');
-        menuIcon.classList.add('fa-times');
-    } else {
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars');
-    }
-}
+
 
 // Notification system
 function showNotification(message, type = 'info') {

@@ -264,23 +264,7 @@ function initStatsCounter() {
     });
 }
 
-// Mobile menu toggle function (legacy support)
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    const menuIcon = document.querySelector('.menu-icon i');
-    
-    if (navLinks) {
-        navLinks.classList.toggle('active');
-        
-        if (menuIcon) {
-            menuIcon.classList.toggle('fa-bars');
-            menuIcon.classList.toggle('fa-times');
-        }
-    }
-}
 
-// Make toggleMenu available globally for onclick handlers
-window.toggleMenu = toggleMenu;
 
 // Enhanced scroll effects
 let lastScrollTop = 0;
