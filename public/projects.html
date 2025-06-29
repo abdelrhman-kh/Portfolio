@@ -38,11 +38,39 @@
     <div class="container">
         <main>
             <section id="projects">
-                <h3>Projects</h3>
+                <h3><i class="fas fa-project-diagram"></i> Featured Projects</h3>
+                <p class="projects-subtitle">DevSecOps solutions and infrastructure projects showcasing enterprise-scale implementations</p>
+                
+                <!-- Project Filter -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-globe"></i> All Projects
+                    </button>
+                    <button class="filter-btn" data-filter="government">
+                        <i class="fas fa-landmark"></i> Government
+                    </button>
+                    <button class="filter-btn" data-filter="healthcare">
+                        <i class="fas fa-heartbeat"></i> Healthcare
+                    </button>
+                    <button class="filter-btn" data-filter="infrastructure">
+                        <i class="fas fa-server"></i> Infrastructure
+                    </button>
+                    <button class="filter-btn" data-filter="automation">
+                        <i class="fas fa-robot"></i> Automation
+                    </button>
+                </div>
+                
                 <div class="projects-container">
-                    <div class="project-item">
-                        <h4><a href="https://dub.ai/en/omp/" target="_blank"><i class="fas fa-external-link-alt"></i> Dubai Future Foundation - One Million Prompts</a></h4>
+                    <div class="project-item" data-category="government">
+                        <div class="project-header">
+                            <h4><a href="https://dub.ai/en/omp/" target="_blank"><i class="fas fa-external-link-alt"></i> Dubai Future Foundation - One Million Prompts</a></h4>
+                            <span class="project-status live">Live</span>
+                        </div>
                         <p>Architected DevSecOps infrastructure with Kubernetes for Dubai's groundbreaking AI platform, implementing GitOps workflows, blue-green deployments, and auto-scaling for seamless performance. Enhanced disaster recovery capabilities and monitoring systems.</p>
+                        <div class="project-metrics">
+                            <span class="metric"><i class="fas fa-users"></i> 50K+ Users</span>
+                            <span class="metric"><i class="fas fa-chart-line"></i> 99.9% Uptime</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">Kubernetes</span>
                             <span class="project-tag">DevSecOps</span>
@@ -51,9 +79,16 @@
                             <span class="project-tag">AI Platform</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="https://mshfakwt.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Mshfa - SaaS Healthcare Platform</a></h4>
+                    <div class="project-item" data-category="healthcare">
+                        <div class="project-header">
+                            <h4><a href="https://mshfakwt.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Mshfa - SaaS Healthcare Platform</a></h4>
+                            <span class="project-status live">Live</span>
+                        </div>
                         <p>Integrated DevSecOps and GitOps with Kubernetes to automate and secure deployments for Kuwait's leading healthcare platform. Ensured HIPAA compliance, 99.9% availability, and implemented comprehensive monitoring for critical medical services.</p>
+                        <div class="project-metrics">
+                            <span class="metric"><i class="fas fa-shield-alt"></i> HIPAA Compliant</span>
+                            <span class="metric"><i class="fas fa-heartbeat"></i> 24/7 Monitoring</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">Healthcare</span>
                             <span class="project-tag">HIPAA Compliance</span>
@@ -62,9 +97,16 @@
                             <span class="project-tag">Zero-downtime</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="https://sea.sa/" target="_blank"><i class="fas fa-external-link-alt"></i> Saudi Esports Federation Academy</a></h4>
+                    <div class="project-item" data-category="government">
+                        <div class="project-header">
+                            <h4><a href="https://sea.sa/" target="_blank"><i class="fas fa-external-link-alt"></i> Saudi Esports Federation Academy</a></h4>
+                            <span class="project-status live">Live</span>
+                        </div>
                         <p>Implemented secure, scalable infrastructure for Saudi Arabia's national esports platform with DevSecOps practices. Deployed zero-downtime releases, auto-scaling capabilities, and comprehensive monitoring to handle massive concurrent users during tournaments.</p>
+                        <div class="project-metrics">
+                            <span class="metric"><i class="fas fa-gamepad"></i> Gaming Platform</span>
+                            <span class="metric"><i class="fas fa-expand-arrows-alt"></i> Auto-scaling</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">Government</span>
                             <span class="project-tag">Auto-scaling</span>
@@ -73,9 +115,16 @@
                             <span class="project-tag">High Availability</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="projects/project_terraform_azure_private_infra.html"><i class="fab fa-github"></i> Azure Private Infrastructure</a></h4>
+                    <div class="project-item" data-category="infrastructure">
+                        <div class="project-header">
+                            <h4><a href="projects/project_terraform_azure_private_infra.html"><i class="fab fa-github"></i> Azure Private Infrastructure</a></h4>
+                            <span class="project-status demo">Demo</span>
+                        </div>
                         <p>Designed production-ready Azure infrastructure with App Services, MySQL, Redis, Blob Storage, and Application Gateway. Emphasized security and scalability through private networking and zero-trust architecture principles.</p>
+                        <div class="project-metrics">
+                            <span class="metric"><i class="fas fa-shield-alt"></i> Zero-trust</span>
+                            <span class="metric"><i class="fas fa-lock"></i> Private Network</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">Terraform</span>
                             <span class="project-tag">Azure</span>
@@ -84,8 +133,11 @@
                             <span class="project-tag">IaC</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="projects/project_kubernetes_on_premise.html"><i class="fab fa-github"></i> Kubernetes On-Premise</a></h4>
+                    <div class="project-item" data-category="infrastructure">
+                        <div class="project-header">
+                            <h4><a href="projects/project_kubernetes_on_premise.html"><i class="fab fa-github"></i> Kubernetes On-Premise</a></h4>
+                            <span class="project-status demo">Demo</span>
+                        </div>
                         <p>Automated on-premises Kubernetes cluster installation with essential assets like Flannel, Dashboard, MetalLB, and Metrics Server. Streamlined deployment processes and reduced setup complexity for enterprise environments.</p>
                         <div class="project-tags">
                             <span class="project-tag">Kubernetes</span>
@@ -94,8 +146,11 @@
                             <span class="project-tag">MetalLB</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="projects/project_run_sql_script_program.html"><i class="fab fa-github"></i> SQL Script Management Tool</a></h4>
+                    <div class="project-item" data-category="automation">
+                        <div class="project-header">
+                            <h4><a href="projects/project_run_sql_script_program.html"><i class="fab fa-github"></i> SQL Script Management Tool</a></h4>
+                            <span class="project-status demo">Demo</span>
+                        </div>
                         <p>Enhanced database management with a .NET MVC 6.0 application for managing MSSQL connection strings and executing scripts efficiently. Improved database deployment workflows and reduced manual errors.</p>
                         <div class="project-tags">
                             <span class="project-tag">.NET Core</span>
@@ -104,8 +159,11 @@
                             <span class="project-tag">Automation</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="projects/project_terraform_create_ec2_instance.html"><i class="fab fa-github"></i> Terraform EC2 Automation</a></h4>
+                    <div class="project-item" data-category="automation">
+                        <div class="project-header">
+                            <h4><a href="projects/project_terraform_create_ec2_instance.html"><i class="fab fa-github"></i> Terraform EC2 Automation</a></h4>
+                            <span class="project-status demo">Demo</span>
+                        </div>
                         <p>Created comprehensive Terraform project to automate EC2 instance creation and configuration, streamlining AWS infrastructure deployment and reducing setup time by 50% for development teams.</p>
                         <div class="project-tags">
                             <span class="project-tag">Terraform</span>
@@ -114,8 +172,11 @@
                             <span class="project-tag">Infrastructure</span>
                         </div>
                     </div>
-                    <div class="project-item">
-                        <h4><a href="projects/project_lambda_function_notified_sns_subscription.html"><i class="fab fa-github"></i> Lambda SNS Monitoring</a></h4>
+                    <div class="project-item" data-category="automation">
+                        <div class="project-header">
+                            <h4><a href="projects/project_lambda_function_notified_sns_subscription.html"><i class="fab fa-github"></i> Lambda SNS Monitoring</a></h4>
+                            <span class="project-status demo">Demo</span>
+                        </div>
                         <p>Developed AWS Lambda function to monitor CloudWatch logs and trigger SNS notifications upon activity, enhancing monitoring and alerting capabilities for distributed systems and improving incident response times.</p>
                         <div class="project-tags">
                             <span class="project-tag">AWS Lambda</span>

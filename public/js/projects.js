@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Initialize all project functionality
     initProjectAnimations();
     initProjectInteractions();
-    initProjectFiltering();
+    initModernProjectFiltering();
     initProjectSearch();
     initProjectStats();
 });
@@ -97,25 +97,40 @@ function initProjectInteractions() {
     });
 }
 
-// Project filtering functionality
-function initProjectFiltering() {
-    // Create filter buttons if they don't exist
-    if (!document.querySelector('.project-categories')) {
-        createFilterButtons();
-    }
-    
-    const filterButtons = document.querySelectorAll('.category-filter');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.dataset.filter;
+// Modern project filtering functionality
+function initModernProjectFiltering() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
             
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+            projectItems.forEach((item, index) => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('hidden');
+                    // Re-animate visible items
+                    setTimeout(() => {
+                        item.style.animation = `slideInUp 0.6s ease-out ${index * 0.1}s forwards`;
+                    }, 50);
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
             
-            // Filter projects
-            filterProjects(filter);
+            // Update project count
+            updateProjectCount();
+            
+            // Show notification
+            const visibleCount = document.querySelectorAll('.project-item:not(.hidden)').length;
+            const categoryName = filter === 'all' ? 'all projects' : `${filter} projects`;
+            showNotification(`Showing ${visibleCount} ${categoryName}`, 'success');
         });
     });
 }

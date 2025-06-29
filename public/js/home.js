@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactFormEnhancements();
     initPerformanceTracking();
     initSectionReveals();
+    initStatsCounter();
 });
 
 // Enhanced Project Card Animations
@@ -222,6 +223,44 @@ function initSectionReveals() {
     
     sections.forEach(section => {
         revealObserver.observe(section);
+    });
+}
+
+// Animated Stats Counter
+function initStatsCounter() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                const element = entry.target;
+                let current = 0;
+                const increment = target / 50; // Adjust speed
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    // Format number based on target
+                    if (target >= 1000) {
+                        element.textContent = (current / 1000).toFixed(current >= target ? 0 : 1) + 'K+';
+                    } else if (target === 99.9) {
+                        element.textContent = current.toFixed(1);
+                    } else {
+                        element.textContent = Math.floor(current) + '+';
+                    }
+                }, 30);
+                
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => {
+        statsObserver.observe(stat);
     });
 }
 
