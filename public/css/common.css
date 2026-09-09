@@ -175,84 +175,12 @@ nav {
   padding-top: 90px;
 }
 
-/* Modern Hero Section */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: var(--primary-gradient);
-  margin: 0 -2rem;
-  padding: 0 2rem;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-  opacity: 0.3;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 1s ease-out;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  color: white;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.hero h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-}
-
-/* Modern CTA Button */
-.download-cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: var(--transition);
-  box-shadow: var(--shadow-medium);
-}
-
-.download-cv:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-heavy);
-}
+/* NOTE: the hero section's real styling (background, .hero-content h1/h2/p,
+   .download-cv, .hero-cta) lives in css/home.css with light/dark theme
+   variants. This file used to carry an older, fixed-dark duplicate of the
+   same selectors that always forced white text — removed so it can't
+   fight home.css's theme-aware rules (same selector specificity, so
+   whichever loaded last used to win regardless of theme). */
 
 /* Floating elements */
 .floating-element {
@@ -327,42 +255,24 @@ section h3:not(.stat-number):not(.stat-card *)::after {
   margin: 3rem 0;
 }
 
-.stat-item {
-  text-align: center;
-  padding: 2rem;
-  background: var(--light-card);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-light);
-  transition: var(--transition);
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-medium);
-}
-
-.stat-item h3 {
-  font-size: 3rem;
-  font-weight: 800;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-}
-
-.stat-item p {
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+/* .stat-item and its children are fully styled (with light/dark variants)
+   in css/home.css — the old fixed-always-white duplicate that used to be
+   here was removed to stop it silently fighting those theme-aware rules. */
 
 /* Footer Enhancement */
 footer {
-  background: var(--dark-bg);
-  color: white;
+  background: var(--light-card);
+  color: var(--text-primary);
   padding: 3rem 0 2rem;
   margin-top: 5rem;
   text-align: center;
+  border-top: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+[data-theme="dark"] footer {
+  background: var(--dark-bg);
+  color: white;
+  border-top-color: transparent;
 }
 
 .footer-social {
@@ -378,16 +288,22 @@ footer {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--accent-color);
   border-radius: 50%;
   text-decoration: none;
   transition: var(--transition);
   backdrop-filter: blur(10px);
 }
 
+[data-theme="dark"] .footer-social a {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
 .footer-social a:hover {
   background: var(--accent-color);
+  color: white;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
 }

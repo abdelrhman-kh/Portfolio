@@ -216,29 +216,50 @@
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+}
+
+[data-theme="dark"] .career-stats {
     background: var(--dark-bg);
     color: white;
-    border-radius: var(--border-radius);
 }
 
 .stat-card {
     text-align: center;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(79, 70, 229, 0.05);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(79, 70, 229, 0.15);
     transition: var(--transition);
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
+    background: rgba(79, 70, 229, 0.1);
+}
+
+[data-theme="dark"] .stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .stat-card:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
 .stat-card h3 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme="dark"] .stat-card h3 {
     background: linear-gradient(45deg, #fff, #e0e7ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -246,8 +267,12 @@
 }
 
 .stat-card p {
-    opacity: 0.9;
+    opacity: 0.85;
     font-size: 0.9rem;
+}
+
+[data-theme="dark"] .stat-card p {
+    opacity: 0.9;
 }
 
 .stat-card i {

@@ -268,69 +268,110 @@
         
         /* Availability Section */
         .availability-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
             padding: 3rem;
             border-radius: 15px;
             text-align: center;
-            color: white;
+            color: #1f2937;
             margin-bottom: 2rem;
+            border: 1px solid rgba(79, 70, 229, 0.15);
         }
-        
+
+        [data-theme="dark"] .availability-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
         .availability-section h2 {
             margin-bottom: 1rem;
             font-size: 1.8rem;
+            color: #1f2937;
         }
-        
+
+        [data-theme="dark"] .availability-section h2 {
+            color: white;
+        }
+
         .availability-section p {
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.85;
+            color: #4b5563;
         }
-        
+
+        [data-theme="dark"] .availability-section p {
+            opacity: 0.9;
+            color: white;
+        }
+
         .availability-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
         }
-        
+
         .availability-tag {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(79, 70, 229, 0.2);
         }
-        
+
+        [data-theme="dark"] .availability-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: normal;
+            border-color: transparent;
+        }
+
         /* Footer */
         footer {
-            background: #333;
-            color: white;
+            background: #f8fafc;
+            color: #1f2937;
             padding: 2rem 0;
             text-align: center;
             margin-top: 3rem;
+            border-top: 1px solid rgba(79, 70, 229, 0.1);
         }
-        
+
+        [data-theme="dark"] footer {
+            background: #0f172a;
+            color: white;
+            border-top-color: transparent;
+        }
+
         .footer-social {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-bottom: 1rem;
         }
-        
+
         .footer-social a {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: rgba(79, 70, 229, 0.08);
+            color: #4f46e5;
             border-radius: 50%;
             text-decoration: none;
             transition: background 0.3s ease;
         }
-        
+
+        [data-theme="dark"] .footer-social a {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
         .footer-social a:hover {
             background: #4f46e5;
+            color: white;
         }
         
         /* Responsive */
