@@ -280,7 +280,7 @@ section h3 {
   position: relative;
 }
 
-section h3::after {
+section h3:not(.stat-number):not(.stat-card *)::after {
   content: '';
   position: absolute;
   bottom: -1rem;

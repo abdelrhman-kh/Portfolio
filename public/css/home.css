@@ -187,13 +187,16 @@
 }
 
 .projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-top: 3rem;
 }
 
 .project-item {
+  flex: 1 1 350px;
+  max-width: 420px;
   background: var(--light-card);
   border-radius: var(--border-radius);
   padding: 2rem;
@@ -423,8 +426,11 @@
   }
   
   .projects-container {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .project-item {
+    max-width: 100%;
   }
   
   .project-item {

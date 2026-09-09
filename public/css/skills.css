@@ -345,6 +345,51 @@
     box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
 }
 
+/* Skills summary section (base/light styles - dark theme overrides below) */
+.skills-summary {
+    background: var(--card-background);
+    border: 1px solid rgba(79, 70, 229, 0.1);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+}
+
+.skills-summary h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.skills-summary p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(102, 126, 234, 0.9));
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    border: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(135deg, rgba(79, 70, 229, 1), rgba(102, 126, 234, 1));
+}
+
 /* Skill Level Indicators */
 .skill-level {
     display: flex;
@@ -521,7 +566,7 @@
 }
 
 /* Enhanced skill section headers for dark theme */
-[data-theme="dark"] section h3::after {
+[data-theme="dark"] section h3:not(.stat-number):not(.stat-card *)::after {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
 }
