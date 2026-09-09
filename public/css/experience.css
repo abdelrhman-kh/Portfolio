@@ -216,7 +216,7 @@
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 65%, #ecfeff 100%);
     color: var(--text-primary);
     border-radius: var(--border-radius);
 }
@@ -358,9 +358,10 @@
     gap: 0.5rem;
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: var(--border-radius);
+    padding: 1rem 2.2rem;
+    border-radius: var(--radius-pill);
     text-decoration: none;
+    font-family: var(--font-display);
     font-weight: 600;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);

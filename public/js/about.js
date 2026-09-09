@@ -386,19 +386,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add smooth reveal for about content
-    const aboutContent = document.querySelector('.about-content');
-    if (aboutContent) {
-        const paragraphs = aboutContent.querySelectorAll('p');
-        paragraphs.forEach((p, index) => {
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                p.style.transition = 'all 0.6s ease';
-                p.style.opacity = '1';
-                p.style.transform = 'translateY(0)';
-            }, index * 200);
-        });
-    }
+    // NOTE: this used to also fade in each .about-text <p> individually via
+    // JS (opacity 0 -> 1 on a setTimeout, per paragraph). That raced with
+    // highlightKeyTerms() above, which rewrites .about-text's innerHTML to
+    // wrap key terms in <span>s — whichever ran second replaced the <p>
+    // nodes the other had already scheduled a reveal for, so the *visible*
+    // paragraphs frequently never got their opacity set back to 1 and the
+    // entire bio text silently vanished. Removed: .about-content already
+    // has its own reliable CSS fade/slide-in (see about.css), so the text
+    // inside it is visible as soon as that container animates in — no
+    // separate per-paragraph JS animation needed.
 });

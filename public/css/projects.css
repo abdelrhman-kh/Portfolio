@@ -50,7 +50,8 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(79, 70, 229, 0.3);
     color: var(--text-primary);
-    border-radius: 25px;
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-display, inherit);
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
@@ -265,7 +266,8 @@
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
     padding: 0.7rem 1.5rem;
-    border-radius: 25px;
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-display, inherit);
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
@@ -369,7 +371,8 @@
     color: white;
     border: none;
     padding: 1rem 2.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-display);
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;

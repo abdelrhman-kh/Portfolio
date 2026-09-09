@@ -93,7 +93,7 @@ main {
 .contact-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #4f46e5, #667eea);
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 60%, #06b6d4 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -224,11 +224,12 @@ main {
 
 .submit-btn {
     width: 100%;
-    background: linear-gradient(135deg, #4f46e5, #667eea);
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 60%, #06b6d4 100%);
     color: white;
     border: none;
     padding: 1.2rem 2rem;
-    border-radius: 12px;
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-display, inherit);
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -253,7 +254,7 @@ main {
 
 /* Availability Section */
 .availability-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #06b6d4 100%);
     padding: 3rem;
     border-radius: 20px;
     text-align: center;

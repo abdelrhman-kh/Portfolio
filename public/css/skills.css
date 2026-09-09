@@ -64,7 +64,8 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(79, 70, 229, 0.3);
     color: var(--text-primary);
-    border-radius: 25px;
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-display, inherit);
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
@@ -254,34 +255,10 @@
     width: var(--progress-width);
 }
 
-/* Skills Filter (if you want to add filtering) */
-.skills-filter {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 0.8rem 1.5rem;
-    background: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
-    border-radius: 25px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-
+/* NOTE: .skills-filter and .filter-btn are already fully styled above
+   (with the shimmer hover effect and dark-theme variants) — this used
+   to be a duplicate, weaker re-declaration that silently overrode the
+   nicer design below it in the cascade. Removed. */
 
 /* Technology Categories with Icons */
 .tech-category {
@@ -528,7 +505,7 @@
 }
 
 [data-theme="dark"] .tech-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 }
 
@@ -567,7 +544,7 @@
 
 /* Enhanced skill section headers for dark theme */
 [data-theme="dark"] section h3:not(.stat-number):not(.stat-card *)::after {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
 }
 
@@ -641,7 +618,7 @@
 
 /* Additional dark theme enhancements */
 [data-theme="dark"] .skill-item::before {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
 }
 

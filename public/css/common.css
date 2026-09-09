@@ -1,9 +1,15 @@
 /* Modern CSS Variables and Reset */
 :root {
   --primary-color: #4f46e5;
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  /* "Aurora" gradient — indigo through violet into a whisper of cyan at
+     the far corner. Used everywhere var(--primary-gradient) already was
+     (hero, CTA bands, badges, icons, timelines...), so this one change
+     carries the new palette across the whole site. Cyan only shows up
+     past the 70% mark, so text sitting on it keeps its contrast. */
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #06b6d4 100%);
+  --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #4f46e5 100%);
   --accent-color: #4f46e5;
+  --accent-cyan: #06b6d4;
   --accent-hover: #3730a3;
   --dark-bg: #0f172a;
   --dark-card: #1e293b;
@@ -16,12 +22,16 @@
   --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 8px 30px rgba(79, 70, 229, 0.18);
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --text-light: #ffffff;
   --border-radius: 20px;
+  --radius-pill: 999px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
+  --font-display: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   /* Additional variables for consistency */
   --primary-color: #4f46e5;
   --card-background: #f8fafc;
@@ -54,11 +64,62 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   background: var(--light-bg);
   color: var(--text-primary);
   transition: var(--transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display typography for headings, nav and CTAs — gives the whole
+   site a distinct, editorial voice while body copy stays on Inter
+   for maximum readability. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Selection + scrollbar polish */
+::selection {
+  background: rgba(79, 70, 229, 0.25);
+  color: var(--text-primary);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed, #06b6d4);
+  border-radius: 10px;
+  border: 2px solid var(--light-bg);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  border-color: var(--dark-bg);
+}
+
+/* Accessible keyboard focus ring, consistent site-wide */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* Modern Navigation */
@@ -66,15 +127,19 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.08);
+  box-shadow: 0 1px 0 rgba(79, 70, 229, 0.04), 0 10px 30px -20px rgba(15, 23, 42, 0.25);
   z-index: 9999;
   transition: var(--transition);
 }
 
 [data-theme="dark"] nav {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.75);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 30px -20px rgba(0, 0, 0, 0.6);
 }
 
 .nav-container {
@@ -108,21 +173,28 @@ nav {
 #nav-links a {
   text-decoration: none;
   color: var(--text-primary);
+  font-family: var(--font-display);
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  font-size: 0.95rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
   transition: var(--transition);
   position: relative;
 }
 
 #nav-links a:hover {
-  background: var(--glass-bg);
+  background: rgba(79, 70, 229, 0.08);
   transform: translateY(-2px);
+}
+
+[data-theme="dark"] #nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 #nav-links a.active {
   background: var(--accent-color);
   color: white;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
 }
 
 #nav-links a.active::after {

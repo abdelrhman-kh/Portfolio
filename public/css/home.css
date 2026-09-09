@@ -3,7 +3,7 @@
 /* Hero Section Enhancements */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+  background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 55%, #ecfeff 100%);
   overflow: hidden;
   padding: 6rem 2rem;
   margin: 0 -2rem;
@@ -29,15 +29,17 @@
   right: 0;
   bottom: 0;
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.06) 0%, transparent 50%);
+    radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 60% 85%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
   animation: backgroundMove 20s ease-in-out infinite;
 }
 
 [data-theme="dark"] .hero::before {
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 60% 85%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
 
 @keyframes backgroundMove {
@@ -84,8 +86,44 @@
   max-width: 800px;
 }
 
+/* Availability badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.25);
+  color: var(--accent-color);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+[data-theme="dark"] .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.hero-badge .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12); }
+}
+
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
@@ -133,13 +171,37 @@
   flex-wrap: wrap;
 }
 
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: currentColor;
+  opacity: 0.5;
+  font-size: 1.1rem;
+  animation: bounceCue 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes bounceCue {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.5; }
+  50% { transform: translate(-50%, 8px); opacity: 0.9; }
+}
+
+@media (max-width: 768px) {
+  .scroll-cue { display: none; }
+}
+
 .download-cv, .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius-pill);
   text-decoration: none;
+  font-family: var(--font-display);
   font-weight: 600;
   transition: var(--transition);
   backdrop-filter: blur(10px);
@@ -331,7 +393,7 @@
 
 /* Stats Section */
 .stats-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 65%, #ecfeff 100%);
   color: var(--text-primary);
   padding: 5rem 0;
   margin: 5rem -2rem 0;
@@ -437,7 +499,7 @@
 
 /* Call to Action Section */
 .cta-section {
-  background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+  background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 55%, #ecfeff 100%);
   color: var(--text-primary);
   padding: 5rem 2rem;
   margin: 5rem -2rem 0;
@@ -483,9 +545,10 @@
   gap: 0.5rem;
   background: rgba(79, 70, 229, 0.08);
   color: var(--accent-color);
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius-pill);
   text-decoration: none;
+  font-family: var(--font-display);
   font-weight: 600;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(79, 70, 229, 0.3);
