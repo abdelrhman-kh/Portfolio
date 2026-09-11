@@ -27,7 +27,7 @@ nav {
   }
   
   .menu-icon:hover {
-    background: rgba(79, 70, 229, 0.1);
+    background: rgba(22, 163, 74, 0.1);
     transform: scale(1.05);
   }
   
@@ -104,7 +104,7 @@ nav {
     font-weight: 600 !important;
     text-decoration: none !important;
     color: var(--text-primary) !important;
-    background: rgba(79, 70, 229, 0.08) !important;
+    background: rgba(22, 163, 74, 0.08) !important;
     border: 2px solid transparent !important;
     
     /* Initial animation state */
@@ -127,14 +127,14 @@ nav {
     color: white !important;
     transform: scale(1.02) !important;
     border-color: var(--accent-color) !important;
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3) !important;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3) !important;
   }
   
   #nav-links a.active {
     background: var(--accent-color) !important;
     color: white !important;
     border-color: var(--accent-color) !important;
-    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4) !important;
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.4) !important;
   }
   
   /* Close button when menu is active */
@@ -152,7 +152,7 @@ nav {
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
-    border: 2px solid rgba(79, 70, 229, 0.2) !important;
+    border: 2px solid rgba(22, 163, 74, 0.2) !important;
   }
   
   .menu-icon.active i {
@@ -161,9 +161,9 @@ nav {
   }
   
   .menu-icon.active:hover {
-    background: rgba(79, 70, 229, 0.1) !important;
+    background: rgba(22, 163, 74, 0.1) !important;
     transform: scale(1.05) !important;
-    border-color: rgba(79, 70, 229, 0.4) !important;
+    border-color: rgba(22, 163, 74, 0.4) !important;
   }
   
   /* Dark theme adjustments */
@@ -178,7 +178,7 @@ nav {
   
   [data-theme="dark"] .menu-icon.active {
     background: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(79, 70, 229, 0.3) !important;
+    border-color: rgba(22, 163, 74, 0.3) !important;
   }
   
   /* Prevent body scroll when menu is open - but allow menu scroll */

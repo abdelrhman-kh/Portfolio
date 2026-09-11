@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/mobile-menu-simple.css">
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
+    <!-- Version 2 ("Aurora") overrides — linked last so they win the cascade when data-version="v2" -->
+    <link rel="stylesheet" href="css/common.v2.css">
+    <link rel="stylesheet" href="css/mobile-menu-simple.v2.css">
+    <link rel="stylesheet" href="css/home.v2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css">
@@ -54,13 +58,24 @@
             </div>
             
             <div class="hero-content">
-                <div class="hero-badge"><span class="status-dot"></span> Available for new projects</div>
-                <h1><span class="typing-animation">Abdel-Rhman Khamis</span></h1>
-                <h2>Senior DevOps Engineer</h2>
-                <p>Hi! I'm Abdel-Rhman, a Senior DevOps Engineer with 7+ years of expertise in cloud infrastructure, automation, and DevSecOps practices. Specialized in architecting secure, scalable solutions for government and enterprise clients, achieving 99.9% uptime and significant efficiency improvements.</p>
-                <div class="hero-buttons">
-                    <a href="media/Abdel-Rhman_Khamis_DevOps_Engineer_CV.pdf" class="download-cv primary" download><i class="fas fa-download"></i> Download CV</a>
-                    <a href="contact.html" class="hero-cta"><i class="fas fa-envelope"></i> Get In Touch</a>
+                <div class="hero-terminal">
+                    <div class="hero-terminal-bar">
+                        <span class="hero-terminal-dot red"></span>
+                        <span class="hero-terminal-dot amber"></span>
+                        <span class="hero-terminal-dot green"></span>
+                        <span class="hero-terminal-title">whoami — zsh</span>
+                    </div>
+                    <div class="hero-terminal-body">
+                        <div class="hero-badge"><span class="status-dot"></span> Available for new projects</div>
+                        <p class="hero-prompt-line"><span class="hero-prompt">$</span> whoami</p>
+                        <h1><span class="typing-animation">Abdel-Rhman Khamis</span></h1>
+                        <h2><span class="hero-kicker-slash">// </span>Senior DevOps Engineer</h2>
+                        <p>Hi! I'm Abdel-Rhman, a Senior DevOps Engineer with 7+ years of expertise in cloud infrastructure, automation, and DevSecOps practices. Specialized in architecting secure, scalable solutions for government and enterprise clients, achieving 99.9% uptime and significant efficiency improvements.</p>
+                        <div class="hero-buttons">
+                            <a href="media/Abdel-Rhman_Khamis_DevOps_Engineer_CV.pdf" class="download-cv primary" download><i class="fas fa-download"></i> Download CV</a>
+                            <a href="contact.html" class="hero-cta"><i class="fas fa-envelope"></i> Get In Touch</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="scroll-cue"><i class="fas fa-chevron-down"></i></div>

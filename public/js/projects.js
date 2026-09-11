@@ -48,7 +48,7 @@ function initProjectInteractions() {
             // Add glow effect to tags
             const tags = this.querySelectorAll('.project-tag');
             tags.forEach(tag => {
-                tag.style.boxShadow = '0 0 20px rgba(79, 70, 229, 0.3)';
+                tag.style.boxShadow = `0 0 20px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'}`;
             });
         });
         

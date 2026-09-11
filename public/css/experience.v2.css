@@ -1,11 +1,11 @@
-/* Enhanced Experience Page Styles */
+/* ===== Version 2 ("Aurora") overrides — auto-generated from the original
+   pre-redesign experience.css, scoped under [data-version="v2"].
+   Do not hand-edit color values here without checking the source. ===== */
 
-/* Experience Section */
-#experience {
+[data-version="v2"] #experience {
     padding: 2rem 0;
 }
-
-.experience-item {
+[data-version="v2"] .experience-item {
     background: var(--light-card);
     border-radius: var(--border-radius);
     padding: 2.5rem;
@@ -16,8 +16,7 @@
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
-
-.experience-item::before {
+[data-version="v2"] .experience-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -28,17 +27,14 @@
     transform: scaleX(0);
     transition: var(--transition);
 }
-
-.experience-item:hover::before {
+[data-version="v2"] .experience-item:hover::before {
     transform: scaleX(1);
 }
-
-.experience-item:hover {
+[data-version="v2"] .experience-item:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-heavy);
 }
-
-.experience-item h4 {
+[data-version="v2"] .experience-item h4 {
     color: var(--text-primary);
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
@@ -46,26 +42,22 @@
     align-items: center;
     gap: 0.5rem;
 }
-
-.experience-item span {
+[data-version="v2"] .experience-item span {
     color: var(--accent-color);
     font-weight: 500;
     font-size: 0.9rem;
-    background: rgba(22, 163, 74, 0.1);
+    background: rgba(79, 70, 229, 0.1);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     margin-left: auto;
 }
-
-.experience-item p {
+[data-version="v2"] .experience-item p {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-top: 1rem;
     font-size: 1rem;
 }
-
-/* Company Logo/Icon */
-.company-icon {
+[data-version="v2"] .company-icon {
     width: 50px;
     height: 50px;
     background: var(--primary-gradient);
@@ -78,28 +70,23 @@
     margin-bottom: 1rem;
     box-shadow: var(--shadow-medium);
 }
-
-/* Skills Used in Each Role */
-.role-skills {
+[data-version="v2"] .role-skills {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-.role-skills h5 {
+[data-version="v2"] .role-skills h5 {
     color: var(--text-primary);
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
 }
-
-.skill-badges {
+[data-version="v2"] .skill-badges {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
-
-.skill-badge {
+[data-version="v2"] .skill-badge {
     background: var(--primary-gradient);
     color: white;
     padding: 0.3rem 0.8rem;
@@ -108,22 +95,18 @@
     font-weight: 500;
     transition: var(--transition);
 }
-
-.skill-badge:hover {
+[data-version="v2"] .skill-badge:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3);
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
 }
-
-/* Achievement Highlights */
-.achievements {
+[data-version="v2"] .achievements {
     margin-top: 1.5rem;
     padding: 1rem;
-    background: rgba(22, 163, 74, 0.05);
+    background: rgba(79, 70, 229, 0.05);
     border-radius: 10px;
     border-left: 4px solid var(--accent-color);
 }
-
-.achievements h5 {
+[data-version="v2"] .achievements h5 {
     color: var(--text-primary);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -131,18 +114,15 @@
     align-items: center;
     gap: 0.5rem;
 }
-
-.achievements h5 i {
+[data-version="v2"] .achievements h5 i {
     color: var(--accent-color);
 }
-
-.achievements ul {
+[data-version="v2"] .achievements ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
-.achievements li {
+[data-version="v2"] .achievements li {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 0.3rem;
@@ -150,20 +130,16 @@
     align-items: center;
     gap: 0.5rem;
 }
-
-.achievements li::before {
+[data-version="v2"] .achievements li::before {
     content: '•';
     color: var(--accent-color);
     font-weight: bold;
 }
-
-/* Experience Timeline Visual */
-.experience-timeline {
+[data-version="v2"] .experience-timeline {
     position: relative;
     padding-left: 2rem;
 }
-
-.experience-timeline::before {
+[data-version="v2"] .experience-timeline::before {
     content: '';
     position: absolute;
     left: 1rem;
@@ -172,13 +148,11 @@
     width: 2px;
     background: var(--primary-gradient);
 }
-
-.experience-timeline .experience-item {
+[data-version="v2"] .experience-timeline .experience-item {
     position: relative;
     margin-left: 2rem;
 }
-
-.experience-timeline .experience-item::after {
+[data-version="v2"] .experience-timeline .experience-item::after {
     content: '';
     position: absolute;
     left: -3rem;
@@ -189,68 +163,51 @@
     border: 3px solid var(--accent-color);
     border-radius: 50%;
 }
-
-/* Current Role Highlight */
-.experience-item.current-role {
+[data-version="v2"] .experience-item.current-role {
     border: 2px solid var(--accent-color);
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.05) 0%, rgba(103, 126, 234, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(103, 126, 234, 0.05) 100%);
 }
-
-.experience-item.current-role::before {
+[data-version="v2"] .experience-item.current-role::before {
     transform: scaleX(1);
 }
-
-.experience-item.current-role .company-icon {
+[data-version="v2"] .experience-item.current-role .company-icon {
     animation: pulse 2s infinite;
 }
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* Career Stats */
-.career-stats {
+[data-version="v2"] .career-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #ecfdf5 65%, #ecfeff 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 65%, #ecfeff 100%);
     color: var(--text-primary);
     border-radius: var(--border-radius);
 }
-
-[data-theme="dark"] .career-stats {
+[data-version="v2"][data-theme="dark"] .career-stats {
     background: var(--dark-bg);
     color: white;
 }
-
-.stat-card {
+[data-version="v2"] .stat-card {
     text-align: center;
     padding: 1.5rem;
-    background: rgba(22, 163, 74, 0.05);
+    background: rgba(79, 70, 229, 0.05);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(22, 163, 74, 0.15);
+    border: 1px solid rgba(79, 70, 229, 0.15);
     transition: var(--transition);
 }
-
-.stat-card:hover {
+[data-version="v2"] .stat-card:hover {
     transform: translateY(-5px);
-    background: rgba(22, 163, 74, 0.1);
+    background: rgba(79, 70, 229, 0.1);
 }
-
-[data-theme="dark"] .stat-card {
+[data-version="v2"][data-theme="dark"] .stat-card {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
 }
-
-[data-theme="dark"] .stat-card:hover {
+[data-version="v2"][data-theme="dark"] .stat-card:hover {
     background: rgba(255, 255, 255, 0.15);
 }
-
-.stat-card h3 {
+[data-version="v2"] .stat-card h3 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     background: var(--primary-gradient);
@@ -258,35 +215,28 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-[data-theme="dark"] .stat-card h3 {
-    background: linear-gradient(45deg, #fff, #dcfce7);
+[data-version="v2"][data-theme="dark"] .stat-card h3 {
+    background: linear-gradient(45deg, #fff, #e0e7ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-.stat-card p {
+[data-version="v2"] .stat-card p {
     opacity: 0.85;
     font-size: 0.9rem;
 }
-
-[data-theme="dark"] .stat-card p {
+[data-version="v2"][data-theme="dark"] .stat-card p {
     opacity: 0.9;
 }
-
-.stat-card i {
+[data-version="v2"] .stat-card i {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
 }
-
-/* Recommendations/Testimonials */
-.recommendations {
+[data-version="v2"] .recommendations {
     margin: 3rem 0;
 }
-
-.recommendation-item {
+[data-version="v2"] .recommendation-item {
     background: var(--light-card);
     padding: 2rem;
     border-radius: var(--border-radius);
@@ -295,8 +245,7 @@
     border-left: 4px solid var(--accent-color);
     position: relative;
 }
-
-.recommendation-item::before {
+[data-version="v2"] .recommendation-item::before {
     content: '"';
     position: absolute;
     top: 1rem;
@@ -306,27 +255,22 @@
     opacity: 0.3;
     font-family: serif;
 }
-
-.recommendation-text {
+[data-version="v2"] .recommendation-text {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1rem;
     font-style: italic;
 }
-
-.recommendation-author {
+[data-version="v2"] .recommendation-author {
     color: var(--text-primary);
     font-weight: 600;
     font-size: 0.9rem;
 }
-
-.recommendation-role {
+[data-version="v2"] .recommendation-role {
     color: var(--text-secondary);
     font-size: 0.8rem;
 }
-
-/* Call to Action */
-.experience-cta {
+[data-version="v2"] .experience-cta {
     background: var(--primary-gradient);
     color: white;
     padding: 3rem 2rem;
@@ -334,25 +278,21 @@
     text-align: center;
     margin: 3rem 0;
 }
-
-.experience-cta h4 {
+[data-version="v2"] .experience-cta h4 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
-
-.experience-cta p {
+[data-version="v2"] .experience-cta p {
     opacity: 0.9;
     margin-bottom: 2rem;
 }
-
-.cta-buttons {
+[data-version="v2"] .cta-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
-
-.cta-button {
+[data-version="v2"] .cta-button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -367,87 +307,68 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: var(--transition);
 }
-
-.cta-button:hover {
+[data-version="v2"] .cta-button:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
 }
-
-.cta-button.primary {
+[data-version="v2"] .cta-button.primary {
     background: white;
     color: var(--accent-color);
 }
-
-.cta-button.primary:hover {
+[data-version="v2"] .cta-button.primary:hover {
     background: rgba(255, 255, 255, 0.9);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .experience-item {
+@media (max-width: 768px) {[data-version="v2"] .experience-item {
         padding: 1.5rem;
     }
-    
-    .experience-item h4 {
+[data-version="v2"] .experience-item h4 {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    
-    .experience-item span {
+[data-version="v2"] .experience-item span {
         margin-left: 0;
         align-self: flex-start;
     }
-    
-    .career-stats {
+[data-version="v2"] .career-stats {
         grid-template-columns: 1fr;
         padding: 1.5rem;
     }
-    
-    .experience-timeline {
+[data-version="v2"] .experience-timeline {
         padding-left: 0;
     }
-    
-    .experience-timeline::before,
-    .experience-timeline .experience-item::after {
+[data-version="v2"] .experience-timeline::before, [data-version="v2"] .experience-timeline .experience-item::after {
         display: none;
     }
-    
-    .experience-timeline .experience-item {
+[data-version="v2"] .experience-timeline .experience-item {
         margin-left: 0;
     }
-    
-    .cta-buttons {
+[data-version="v2"] .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-}
 
-/* Loading Animation */
-.experience-item {
+}
+[data-version="v2"] .experience-item {
     opacity: 0;
     transform: translateY(30px);
     animation: slideInUp 0.8s ease-out forwards;
 }
-
-.experience-item:nth-child(1) { animation-delay: 0.1s; }
-.experience-item:nth-child(2) { animation-delay: 0.2s; }
-.experience-item:nth-child(3) { animation-delay: 0.3s; }
-.experience-item:nth-child(4) { animation-delay: 0.4s; }
-.experience-item:nth-child(5) { animation-delay: 0.5s; }
-
-/* Dark theme adjustments */
-[data-theme="dark"] .experience-item,
-[data-theme="dark"] .recommendation-item {
+[data-version="v2"] .experience-item:nth-child(1) { animation-delay: 0.1s; }
+[data-version="v2"] .experience-item:nth-child(2) { animation-delay: 0.2s; }
+[data-version="v2"] .experience-item:nth-child(3) { animation-delay: 0.3s; }
+[data-version="v2"] .experience-item:nth-child(4) { animation-delay: 0.4s; }
+[data-version="v2"] .experience-item:nth-child(5) { animation-delay: 0.5s; }
+[data-version="v2"][data-theme="dark"] .experience-item, [data-version="v2"][data-theme="dark"] .recommendation-item {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-[data-theme="dark"] .achievements {
+[data-version="v2"][data-theme="dark"] .achievements {
     background: rgba(255, 255, 255, 0.05);
 }
-
-[data-theme="dark"] .role-skills {
+[data-version="v2"][data-theme="dark"] .role-skills {
     border-top-color: rgba(255, 255, 255, 0.1);
 }
+

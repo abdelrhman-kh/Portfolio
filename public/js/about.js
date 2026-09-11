@@ -106,7 +106,7 @@ function initTimelineAnimations() {
             
             if (timelineDate) {
                 timelineDate.style.transform = 'scale(1.1)';
-                timelineDate.style.boxShadow = '0 8px 25px rgba(79, 70, 229, 0.3)';
+                timelineDate.style.boxShadow = `0 8px 25px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'}`;
             }
             
             if (timelineContent) {
@@ -150,7 +150,7 @@ function initSkillTags() {
     skillTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.1) translateY(-2px)';
-            this.style.boxShadow = '0 8px 25px rgba(79, 70, 229, 0.3)';
+            this.style.boxShadow = `0 8px 25px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'}`;
         });
         
         tag.addEventListener('mouseleave', function() {

@@ -1,58 +1,68 @@
 /* Modern CSS Variables and Reset */
 :root {
-  --primary-color: #4f46e5;
-  /* "Aurora" gradient — indigo through violet into a whisper of cyan at
-     the far corner. Used everywhere var(--primary-gradient) already was
-     (hero, CTA bands, badges, icons, timelines...), so this one change
-     carries the new palette across the whole site. Cyan only shows up
-     past the 70% mark, so text sitting on it keeps its contrast. */
-  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #06b6d4 100%);
-  --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #4f46e5 100%);
-  --accent-color: #4f46e5;
+  --primary-color: #16a34a;
+  /* "Signal" gradient — terminal green through teal into cyan, like an
+     uptime graph or a status light strip. Used everywhere
+     var(--primary-gradient) already was (hero, CTA bands, badges, icons,
+     timelines...), so this one change carries the new palette across the
+     whole site. */
+  --primary-gradient: linear-gradient(135deg, #16a34a 0%, #0d9488 55%, #06b6d4 100%);
+  --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #16a34a 100%);
+  --accent-color: #16a34a;
   --accent-cyan: #06b6d4;
   --accent-warm: #f59e0b;
   --accent-warm-soft: rgba(245, 158, 11, 0.12);
-  --accent-hover: #3730a3;
-  --dark-bg: #0f172a;
-  --dark-card: #1e293b;
-  --light-bg: #ffffff;
-  --light-card: #f8fafc;
-  --card-background: #f8fafc;
-  --background-color: #ffffff;
+  --accent-hover: #15803d;
+  --dark-bg: #0a0f0d;
+  --dark-card: #10201a;
+  --light-bg: #f7faf8;
+  --light-card: #ffffff;
+  --card-background: #ffffff;
+  --background-color: #f7faf8;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-glow: 0 8px 30px rgba(79, 70, 229, 0.18);
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
+  --shadow-glow: 0 8px 30px rgba(22, 163, 74, 0.18);
+  --text-primary: #10231a;
+  --text-secondary: #4b5f56;
   --text-light: #ffffff;
-  --border-radius: 20px;
-  --radius-pill: 999px;
+  --border-radius: 10px;
+  --radius-pill: 8px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-display: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'JetBrains Mono', 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
 
   /* Additional variables for consistency */
-  --primary-color: #4f46e5;
+  --primary-color: #16a34a;
   --card-background: #f8fafc;
   --background-color: #ffffff;
 }
 
 /* Dark theme variables */
 [data-theme="dark"] {
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --light-bg: #0f172a;
-  --light-card: #1e293b;
-  --card-background: #1e293b;
-  --background-color: #0f172a;
-  --glass-bg: rgba(30, 41, 59, 0.8);
+  --text-primary: #f2fbf6;
+  --text-secondary: #a9c2b8;
+  --light-bg: #0a0f0d;
+  --light-card: #10201a;
+  --card-background: #10201a;
+  --background-color: #0a0f0d;
+  --glass-bg: rgba(16, 32, 26, 0.8);
   --glass-border: rgba(255, 255, 255, 0.2);
   --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
   --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  /* Dark mode only: bring back a slice of the old site's indigo/violet
+     "Aurora" gradient and mix it into the new terminal green/teal/cyan
+     signal palette. Light mode stays pure terminal-green; dark mode reads
+     as the two themes overlaid — gradients, glows and the underline/CTA
+     accents shift toward indigo-violet-teal-cyan instead of plain green. */
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 32%, #0d9488 68%, #06b6d4 100%);
+  --secondary-gradient: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  --accent-violet: #8b5cf6;
+  --shadow-glow: 0 8px 30px rgba(124, 58, 237, 0.22);
 }
 
 * {
@@ -68,15 +78,19 @@ html {
 body {
   font-family: var(--font-body);
   line-height: 1.6;
-  /* Ambient colour wash: two soft, fixed radial blobs sitting under the
-     solid page colour. Anywhere a section paints its own background
-     (hero, cards, footer...) simply covers this — it only shows through
-     the plain gaps between sections, which is what keeps the whole site
-     feeling like one continuous surface instead of a stack of blocks. */
+  /* Blueprint wash: a faint 1px graph-paper grid plus two soft radial
+     blobs, sitting under the solid page colour. Anywhere a section paints
+     its own background (hero, cards, footer...) simply covers this — it
+     only shows through the plain gaps between sections, which is what
+     keeps the whole site reading like one console surface instead of a
+     stack of blocks. */
   background:
-    radial-gradient(circle at 12% 8%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.045) 0%, transparent 45%),
+    linear-gradient(rgba(22, 163, 74, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 163, 74, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(22, 163, 74, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.05) 0%, transparent 45%),
     var(--light-bg);
+  background-size: 32px 32px, 32px 32px, auto, auto, auto;
   background-attachment: fixed;
   color: var(--text-primary);
   transition: var(--transition);
@@ -85,10 +99,17 @@ body {
 }
 
 [data-theme="dark"] body {
+  /* Old-site aurora blob (indigo/violet, top-left) layered with the
+     terminal theme's teal blob (kept, now smaller/center) and cyan blob
+     (bottom-right) — the mixed dark-mode background. */
   background:
-    radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.14) 0%, transparent 40%),
-    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    linear-gradient(rgba(52, 211, 153, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 211, 153, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.18) 0%, transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.13) 0%, transparent 45%),
+    radial-gradient(circle at 50% 45%, rgba(13, 148, 136, 0.08) 0%, transparent 55%),
     var(--dark-bg);
+  background-size: 32px 32px, 32px 32px, auto, auto, auto, auto;
   background-attachment: fixed;
 }
 
@@ -102,13 +123,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Selection + scrollbar polish */
 ::selection {
-  background: rgba(79, 70, 229, 0.25);
+  background: rgba(22, 163, 74, 0.25);
   color: var(--text-primary);
+}
+
+[data-theme="dark"] ::selection {
+  /* Old-site violet selection tint, mixed dark mode only */
+  background: rgba(124, 58, 237, 0.3);
 }
 
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--accent-color) transparent;
+}
+
+html[data-theme="dark"] {
+  scrollbar-color: var(--accent-violet) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -121,12 +151,13 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #4f46e5, #7c3aed, #06b6d4);
+  background: linear-gradient(180deg, #16a34a, #0d9488, #06b6d4);
   border-radius: 10px;
   border: 2px solid var(--light-bg);
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed, #06b6d4);
   border-color: var(--dark-bg);
 }
 
@@ -146,24 +177,26 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(247, 250, 248, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(79, 70, 229, 0.08);
-  box-shadow: 0 1px 0 rgba(79, 70, 229, 0.04), 0 10px 30px -20px rgba(15, 23, 42, 0.25);
+  border-bottom: 1px solid rgba(22, 163, 74, 0.08);
+  box-shadow: 0 1px 0 rgba(22, 163, 74, 0.04), 0 10px 30px -20px rgba(15, 23, 42, 0.25);
   z-index: 9999;
   transition: var(--transition);
 }
 
 [data-theme="dark"] nav {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(16, 32, 26, 0.78);
   border-bottom-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 30px -20px rgba(0, 0, 0, 0.6);
 }
 
 /* On desktop the whole bar detaches from the edge into a floating pill —
    the mobile bar stays edge-to-edge (below) since there's no room to
-   spare and the full-screen menu overlay expects it anchored there. */
+   spare and the full-screen menu overlay expects it anchored there. A
+   trio of "window control" dots sits on the top edge so the bar reads
+   as a terminal window's title bar rather than a plain toolbar. */
 @media (min-width: 769px) {
   nav {
     top: 1rem;
@@ -171,14 +204,31 @@ nav {
     width: calc(100% - 3rem);
     max-width: 1140px;
     transform: translateX(-50%);
-    border: 1px solid rgba(79, 70, 229, 0.08);
+    border: 1px solid rgba(22, 163, 74, 0.08);
     border-radius: var(--radius-pill);
-    box-shadow: 0 1px 0 rgba(79, 70, 229, 0.04), 0 20px 40px -20px rgba(15, 23, 42, 0.3);
+    box-shadow: 0 1px 0 rgba(22, 163, 74, 0.04), 0 20px 40px -20px rgba(15, 23, 42, 0.3);
   }
 
   [data-theme="dark"] nav {
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  nav::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 28px;
+    width: 38px;
+    height: 10px;
+    background-image:
+      radial-gradient(circle, #ef4444 3.5px, transparent 4px),
+      radial-gradient(circle, #f59e0b 3.5px, transparent 4px),
+      radial-gradient(circle, #16a34a 3.5px, transparent 4px);
+    background-position: 0 50%, 16px 50%, 32px 50%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.85;
   }
 }
 
@@ -208,12 +258,12 @@ nav {
 [data-theme="dark"] .nav-profile-pic {
   background:
     linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
-    linear-gradient(135deg, var(--accent-cyan), var(--accent-warm)) border-box;
+    linear-gradient(135deg, var(--accent-violet), var(--accent-cyan)) border-box;
 }
 
 .nav-profile-pic:hover {
   transform: scale(1.1) rotate(-4deg);
-  box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.4);
 }
 
 #nav-links {
@@ -235,7 +285,7 @@ nav {
 }
 
 #nav-links a:hover {
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(22, 163, 74, 0.08);
   transform: translateY(-2px);
 }
 
@@ -246,7 +296,7 @@ nav {
 #nav-links a.active {
   background: var(--accent-color);
   color: white;
-  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
 }
 
 #nav-links a.active::after {
@@ -281,6 +331,33 @@ nav {
   background: var(--accent-color);
   color: white;
   transform: rotate(180deg);
+}
+
+/* Version Toggle — switches between the two full site designs (each with
+   its own light/dark mode), sitting right next to the theme toggle. */
+.version-toggle {
+  background: none;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  height: 45px;
+  min-width: 45px;
+  padding: 0 0.75rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.version-toggle:hover {
+  background: var(--accent-color);
+  color: white;
 }
 
 /* Menu icon for mobile */
@@ -329,19 +406,19 @@ section {
   position: relative;
 }
 
-/* Small uppercase "kicker" label sitting above a section's h3 — gives each
-   section an editorial pretitle (ABOUT, CAREER, TOOLKIT...) instead of a
-   heading dropping straight in. */
+/* Command-prompt "kicker" label sitting above a section's h3 — reads like
+   a shell invocation ($ about, $ toolkit...) instead of a heading dropping
+   straight in, with a blinking cursor block to sell the terminal bit. */
 .section-kicker {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  gap: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
   color: var(--accent-color);
   margin-bottom: 0.75rem;
 }
@@ -350,14 +427,24 @@ section {
   color: var(--accent-cyan);
 }
 
-.section-kicker::before,
+.section-kicker::before {
+  content: '$ ';
+  opacity: 0.55;
+  font-weight: 400;
+}
+
 .section-kicker::after {
   content: '';
-  width: 24px;
-  height: 2px;
-  background: var(--primary-gradient);
-  border-radius: 2px;
-  opacity: 0.6;
+  width: 7px;
+  height: 1em;
+  margin-left: 0.4rem;
+  background: currentColor;
+  animation: kickerBlink 1s step-end infinite;
+}
+
+@keyframes kickerBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 section h3 {
@@ -427,7 +514,7 @@ footer {
   padding: 3.5rem 0 2rem;
   margin-top: 5rem;
   text-align: center;
-  border-top: 1px solid rgba(79, 70, 229, 0.1);
+  border-top: 1px solid rgba(22, 163, 74, 0.1);
 }
 
 [data-theme="dark"] footer {
@@ -471,7 +558,7 @@ footer {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(22, 163, 74, 0.08);
   color: var(--accent-color);
   border-radius: 50%;
   text-decoration: none;
@@ -488,7 +575,7 @@ footer {
   background: var(--accent-color);
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
 }
 
 footer > p {
@@ -585,7 +672,7 @@ footer > p {
   }
   
   .menu-icon:hover {
-    background: rgba(79, 70, 229, 0.1);
+    background: rgba(22, 163, 74, 0.1);
   }
   
   .menu-icon i {
@@ -635,7 +722,7 @@ footer > p {
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
-    background: rgba(79, 70, 229, 0.1);
+    background: rgba(22, 163, 74, 0.1);
     border: 2px solid transparent;
     transform: scale(0.9);
     opacity: 0;
@@ -663,7 +750,7 @@ footer > p {
   }
   
   [data-theme="dark"] #nav-links {
-    background: rgba(15, 23, 42, 0.98);
+    background: rgba(10, 15, 13, 0.98);
   }
   
   [data-theme="dark"] #nav-links a {

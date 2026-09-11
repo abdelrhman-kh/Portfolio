@@ -123,18 +123,18 @@
   /* ENHANCED HOVER STATES */
   #nav-links a:hover,
   #nav-links a:focus {
-    background: #4f46e5 !important;
+    background: #16a34a !important;
     color: #ffffff !important;
-    border-color: #4f46e5 !important;
+    border-color: #16a34a !important;
     transform: translateX(8px) scale(1.02) !important;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3) !important;
   }
   
   #nav-links a.active {
-    background: #4f46e5 !important;
+    background: #16a34a !important;
     color: #ffffff !important;
-    border-color: #4f46e5 !important;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4) !important;
+    border-color: #16a34a !important;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4) !important;
   }
   
   /* ENHANCED CLOSE BUTTON */

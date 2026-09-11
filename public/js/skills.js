@@ -65,7 +65,7 @@ function initSkillInteractions() {
             techTags.forEach((tag, index) => {
                 setTimeout(() => {
                     tag.style.transform = 'scale(1.05)';
-                    tag.style.boxShadow = '0 4px 12px rgba(79, 70, 229, 0.3)';
+                    tag.style.boxShadow = `0 4px 12px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'}`;
                 }, index * 50);
             });
         });
@@ -214,7 +214,7 @@ style.textContent = `
     
     .skill-tag:hover {
         transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        box-shadow: 0 4px 12px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'};
     }
 `;
 

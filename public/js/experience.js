@@ -62,7 +62,7 @@ function initExperienceInteractions() {
             skillBadges.forEach((badge, index) => {
                 setTimeout(() => {
                     badge.style.transform = 'scale(1.1)';
-                    badge.style.boxShadow = '0 4px 12px rgba(79, 70, 229, 0.3)';
+                    badge.style.boxShadow = `0 4px 12px ${document.documentElement.getAttribute('data-version') === 'v2' ? 'rgba(79, 70, 229, 0.3)' : 'rgba(22, 163, 74, 0.3)'}`;
                 }, index * 50);
             });
         });

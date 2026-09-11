@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all components
     initThemeToggle();
+    initVersionToggle();
     initScrollAnimations();
     initBackToTop();
     initMobileMenu();
@@ -141,9 +142,53 @@ function initThemeToggle() {
 }
 
 function updateThemeIcon(button, theme) {
-    button.innerHTML = theme === 'dark' 
-        ? '<i class="fas fa-sun"></i>' 
+    button.innerHTML = theme === 'dark'
+        ? '<i class="fas fa-sun"></i>'
         : '<i class="fas fa-moon"></i>';
+}
+
+// Version Toggle Functionality — swaps between the two full site designs
+// ("Terminal/Ops" and "Aurora"), each of which still has its own light/dark
+// mode via the theme toggle above.
+function initVersionToggle() {
+    const nav = document.querySelector('.nav-container');
+    const versionToggle = document.createElement('button');
+    versionToggle.className = 'version-toggle';
+    versionToggle.setAttribute('aria-label', 'Switch site version');
+
+    // Place it immediately before the theme toggle so the two switches sit
+    // together; fall back to before the menu icon, or at the end of nav.
+    const themeToggle = document.querySelector('.theme-toggle');
+    const menuIcon = document.querySelector('.menu-icon');
+    if (themeToggle && themeToggle.parentNode) {
+        themeToggle.parentNode.insertBefore(versionToggle, themeToggle);
+    } else if (menuIcon) {
+        nav.insertBefore(versionToggle, menuIcon);
+    } else {
+        nav.appendChild(versionToggle);
+    }
+
+    // Load saved version
+    const savedVersion = localStorage.getItem('siteVersion') || 'v1';
+    document.documentElement.setAttribute('data-version', savedVersion);
+    updateVersionLabel(versionToggle, savedVersion);
+
+    // Version toggle event
+    versionToggle.addEventListener('click', function() {
+        const currentVersion = document.documentElement.getAttribute('data-version');
+        const newVersion = currentVersion === 'v2' ? 'v1' : 'v2';
+
+        document.documentElement.setAttribute('data-version', newVersion);
+        localStorage.setItem('siteVersion', newVersion);
+        updateVersionLabel(versionToggle, newVersion);
+    });
+}
+
+function updateVersionLabel(button, version) {
+    button.textContent = version === 'v2' ? 'V2' : 'V1';
+    button.title = version === 'v2'
+        ? 'Switch to Version 1 (Terminal)'
+        : 'Switch to Version 2 (Aurora)';
 }
 
 // Scroll Animations
@@ -561,6 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export functions for use in other scripts
 window.portfolioJS = {
     initThemeToggle,
+    initVersionToggle,
     initScrollAnimations,
     initBackToTop,
     initMobileMenu,
