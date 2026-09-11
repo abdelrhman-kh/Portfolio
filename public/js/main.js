@@ -265,8 +265,19 @@ function initStatsCounter() {
 }
 
 function animateCounter(statItem) {
-    const counter = statItem.querySelector('.counter');
-    const target = parseFloat(statItem.dataset.count);
+    // The actual markup uses .stat-number / data-target (not the older
+    // .counter / data-count shape initStatsCounter() would have injected),
+    // and the observer can fire more than once per element — guard both.
+    const counter = statItem.querySelector('.stat-number');
+    if (!counter || counter.dataset.animated) return;
+    counter.dataset.animated = 'true';
+
+    const target = parseFloat(counter.dataset.target);
+    if (isNaN(target)) return;
+
+    // Preserve any non-numeric suffix already in the markup (e.g. "15+").
+    const suffix = counter.textContent.trim().replace(/^-?[\d,.]+/, '');
+
     const duration = 2000; // 2 seconds
     const step = target / (duration / 16); // 60fps
     let current = 0;
@@ -277,16 +288,18 @@ function animateCounter(statItem) {
             current = target;
             clearInterval(timer);
         }
-        
+
         // Handle different number formats
+        let formatted;
         if (target >= 1000) {
-            counter.textContent = Math.floor(current).toLocaleString();
+            formatted = Math.floor(current).toLocaleString();
         } else if (target % 1 !== 0) {
             // Decimal number like 99.9
-            counter.textContent = current.toFixed(1);
+            formatted = current.toFixed(1);
         } else {
-            counter.textContent = Math.floor(current);
+            formatted = Math.floor(current);
         }
+        counter.textContent = formatted + suffix;
     }, 16);
 }
 
