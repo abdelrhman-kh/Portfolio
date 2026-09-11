@@ -10,6 +10,8 @@
   --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #4f46e5 100%);
   --accent-color: #4f46e5;
   --accent-cyan: #06b6d4;
+  --accent-warm: #f59e0b;
+  --accent-warm-soft: rgba(245, 158, 11, 0.12);
   --accent-hover: #3730a3;
   --dark-bg: #0f172a;
   --dark-card: #1e293b;
@@ -66,11 +68,28 @@ html {
 body {
   font-family: var(--font-body);
   line-height: 1.6;
-  background: var(--light-bg);
+  /* Ambient colour wash: two soft, fixed radial blobs sitting under the
+     solid page colour. Anywhere a section paints its own background
+     (hero, cards, footer...) simply covers this — it only shows through
+     the plain gaps between sections, which is what keeps the whole site
+     feeling like one continuous surface instead of a stack of blocks. */
+  background:
+    radial-gradient(circle at 12% 8%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.045) 0%, transparent 45%),
+    var(--light-bg);
+  background-attachment: fixed;
   color: var(--text-primary);
   transition: var(--transition);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    var(--dark-bg);
+  background-attachment: fixed;
 }
 
 /* Display typography for headings, nav and CTAs — gives the whole
@@ -142,10 +161,31 @@ nav {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 30px -20px rgba(0, 0, 0, 0.6);
 }
 
+/* On desktop the whole bar detaches from the edge into a floating pill —
+   the mobile bar stays edge-to-edge (below) since there's no room to
+   spare and the full-screen menu overlay expects it anchored there. */
+@media (min-width: 769px) {
+  nav {
+    top: 1rem;
+    left: 50%;
+    width: calc(100% - 3rem);
+    max-width: 1140px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(79, 70, 229, 0.08);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 1px 0 rgba(79, 70, 229, 0.04), 0 20px 40px -20px rgba(15, 23, 42, 0.3);
+  }
+
+  [data-theme="dark"] nav {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+}
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.7rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,12 +195,24 @@ nav {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 3px solid var(--accent-color);
+  border: 3px solid transparent;
+  /* Gradient ring (indigo -> warm amber) instead of a flat accent border —
+     a small signature touch that shows on every page since the nav photo
+     is always visible. */
+  background:
+    linear-gradient(var(--light-bg), var(--light-bg)) padding-box,
+    linear-gradient(135deg, var(--accent-color), var(--accent-warm)) border-box;
   transition: var(--transition);
 }
 
+[data-theme="dark"] .nav-profile-pic {
+  background:
+    linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
+    linear-gradient(135deg, var(--accent-cyan), var(--accent-warm)) border-box;
+}
+
 .nav-profile-pic:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-4deg);
   box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
 }
 
@@ -247,6 +299,12 @@ nav {
   padding-top: 90px;
 }
 
+@media (min-width: 769px) {
+  .container {
+    padding-top: 112px;
+  }
+}
+
 /* NOTE: the hero section's real styling (background, .hero-content h1/h2/p,
    .download-cv, .hero-cta) lives in css/home.css with light/dark theme
    variants. This file used to carry an older, fixed-dark duplicate of the
@@ -269,6 +327,37 @@ nav {
 section {
   padding: 5rem 0;
   position: relative;
+}
+
+/* Small uppercase "kicker" label sitting above a section's h3 — gives each
+   section an editorial pretitle (ABOUT, CAREER, TOOLKIT...) instead of a
+   heading dropping straight in. */
+.section-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="dark"] .section-kicker {
+  color: var(--accent-cyan);
+}
+
+.section-kicker::before,
+.section-kicker::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  opacity: 0.6;
 }
 
 section h3 {
@@ -335,7 +424,7 @@ section h3:not(.stat-number):not(.stat-card *)::after {
 footer {
   background: var(--light-card);
   color: var(--text-primary);
-  padding: 3rem 0 2rem;
+  padding: 3.5rem 0 2rem;
   margin-top: 5rem;
   text-align: center;
   border-top: 1px solid rgba(79, 70, 229, 0.1);
@@ -345,6 +434,28 @@ footer {
   background: var(--dark-bg);
   color: white;
   border-top-color: transparent;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-tagline {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+[data-theme="dark"] .footer-tagline {
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .footer-social {
@@ -378,6 +489,15 @@ footer {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+footer > p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+[data-theme="dark"] footer > p {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* Back to top button */
