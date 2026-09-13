@@ -125,8 +125,8 @@ function initThemeToggle() {
         nav.appendChild(themeToggle);
     }
     
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Load saved theme (defaults to dark)
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(themeToggle, savedTheme);
     
@@ -147,16 +147,32 @@ function updateThemeIcon(button, theme) {
         : '<i class="fas fa-moon"></i>';
 }
 
-// Version Toggle Functionality — swaps between the two full site designs
-// ("Terminal/Ops" and "Aurora"), each of which still has its own light/dark
-// mode via the theme toggle above.
+// Version Toggle Functionality — cycles between the three full site
+// designs ("Terminal/Ops", "Aurora" and "Farmstand"), each of which still
+// has its own light/dark mode via the theme toggle above. Rendered as a
+// single button showing the active version; clicking it advances to the
+// next one (V1 → V2 → V3 → V1 …).
+const SITE_VERSIONS = [
+    { id: 'v1', label: 'V1', title: 'Version 1 — Terminal' },
+    { id: 'v2', label: 'V2', title: 'Version 2 — Aurora' },
+    { id: 'v3', label: 'V3', title: 'Version 3 — Farmstand' }
+];
+
 function initVersionToggle() {
     const nav = document.querySelector('.nav-container');
     const versionToggle = document.createElement('button');
     versionToggle.className = 'version-toggle';
-    versionToggle.setAttribute('aria-label', 'Switch site version');
 
-    // Place it immediately before the theme toggle so the two switches sit
+    versionToggle.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-version') || 'v3';
+        const currentIndex = SITE_VERSIONS.findIndex(v => v.id === current);
+        const next = SITE_VERSIONS[(currentIndex + 1) % SITE_VERSIONS.length];
+        document.documentElement.setAttribute('data-version', next.id);
+        localStorage.setItem('siteVersion', next.id);
+        updateVersionLabel(versionToggle, next.id);
+    });
+
+    // Place it immediately before the theme toggle so the two toggles sit
     // together; fall back to before the menu icon, or at the end of nav.
     const themeToggle = document.querySelector('.theme-toggle');
     const menuIcon = document.querySelector('.menu-icon');
@@ -168,27 +184,18 @@ function initVersionToggle() {
         nav.appendChild(versionToggle);
     }
 
-    // Load saved version
-    const savedVersion = localStorage.getItem('siteVersion') || 'v1';
+    // Load saved version (defaults to v3; migrate anything unrecognized to v3)
+    let savedVersion = localStorage.getItem('siteVersion') || 'v3';
+    if (!SITE_VERSIONS.some(v => v.id === savedVersion)) savedVersion = 'v3';
     document.documentElement.setAttribute('data-version', savedVersion);
     updateVersionLabel(versionToggle, savedVersion);
-
-    // Version toggle event
-    versionToggle.addEventListener('click', function() {
-        const currentVersion = document.documentElement.getAttribute('data-version');
-        const newVersion = currentVersion === 'v2' ? 'v1' : 'v2';
-
-        document.documentElement.setAttribute('data-version', newVersion);
-        localStorage.setItem('siteVersion', newVersion);
-        updateVersionLabel(versionToggle, newVersion);
-    });
 }
 
 function updateVersionLabel(button, version) {
-    button.textContent = version === 'v2' ? 'V2' : 'V1';
-    button.title = version === 'v2'
-        ? 'Switch to Version 1 (Terminal)'
-        : 'Switch to Version 2 (Aurora)';
+    const active = SITE_VERSIONS.find(v => v.id === version) || SITE_VERSIONS[SITE_VERSIONS.length - 1];
+    button.textContent = active.label;
+    button.title = `${active.title} — click to switch version`;
+    button.setAttribute('aria-label', `${active.title} — click to switch version`);
 }
 
 // Scroll Animations
@@ -394,14 +401,21 @@ function initTypingAnimation() {
     const heroTitle = document.querySelector('.hero h2');
     if (!heroTitle) return;
 
-    const text = heroTitle.textContent;
+    // The "// " prefix lives in its own .hero-kicker-slash span so CSS can
+    // hide it per version (V2/V3 drop it). Flattening the whole element to
+    // plain text (the old behavior) destroyed that span the moment typing
+    // finished, so the prefix always reappeared regardless of version —
+    // preserve the span and only type out the text after it.
+    const kicker = heroTitle.querySelector('.hero-kicker-slash');
+    const text = kicker ? heroTitle.textContent.slice(kicker.textContent.length) : heroTitle.textContent;
     heroTitle.textContent = '';
+    if (kicker) heroTitle.appendChild(kicker);
     heroTitle.classList.add('typing-animation');
 
     let i = 0;
     const typeTimer = setInterval(() => {
         if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
+            heroTitle.appendChild(document.createTextNode(text.charAt(i)));
             i++;
         } else {
             clearInterval(typeTimer);

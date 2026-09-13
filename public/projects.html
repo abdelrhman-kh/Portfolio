@@ -14,8 +14,12 @@
     <link rel="stylesheet" href="css/common.v2.css">
     <link rel="stylesheet" href="css/mobile-menu-simple.v2.css">
     <link rel="stylesheet" href="css/projects.v2.css">
+    <!-- Version 3 ("Farmstand") overrides — linked last so they win the cascade when data-version="v3" -->
+    <link rel="stylesheet" href="css/common.v3.css">
+    <link rel="stylesheet" href="css/mobile-menu-simple.v3.css">
+    <link rel="stylesheet" href="css/projects.v3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Anton&family=Work+Sans:wght@400;500;600;700;800&family=Permanent+Marker&display=swap">
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -87,10 +91,10 @@
                     </div>
                     <div class="project-item" data-category="healthcare">
                         <div class="project-header">
-                            <h4><a href="https://mshfakwt.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Mshfa - SaaS Healthcare Platform</a></h4>
-                            <span class="project-status live">Live</span>
+                            <h4>Mshfa - SaaS Healthcare Platform</h4>
+                            <span class="project-status demo">Case Study</span>
                         </div>
-                        <p>Integrated DevSecOps and GitOps with Kubernetes to automate and secure deployments for Kuwait's leading healthcare platform. Ensured HIPAA compliance, 99.9% availability, and implemented comprehensive monitoring for critical medical services.</p>
+                        <p>Integrated DevSecOps and GitOps with Kubernetes to automate and secure deployments for Kuwait's leading healthcare platform. Ensured HIPAA compliance, 99.9% availability, and implemented comprehensive monitoring for critical medical services. The platform is no longer live.</p>
                         <div class="project-metrics">
                             <span class="metric"><i class="fas fa-shield-alt"></i> HIPAA Compliant</span>
                             <span class="metric"><i class="fas fa-heartbeat"></i> 24/7 Monitoring</span>
@@ -123,72 +127,106 @@
                     </div>
                     <div class="project-item" data-category="infrastructure">
                         <div class="project-header">
-                            <h4><a href="projects/project_terraform_azure_private_infra.html"><i class="fab fa-github"></i> Azure Private Infrastructure</a></h4>
-                            <span class="project-status demo">Demo</span>
+                            <h4><a href="https://github.com/abdelrhman-kh/Terraform-Azure-PrivateInfra" target="_blank"><i class="fab fa-github"></i> Terraform Azure Private Infrastructure</a></h4>
+                            <span class="project-status demo">Open Source</span>
                         </div>
-                        <p>Designed production-ready Azure infrastructure with App Services, MySQL, Redis, Blob Storage, and Application Gateway. Emphasized security and scalability through private networking and zero-trust architecture principles.</p>
+                        <p>A production-ready, modular Terraform configuration for Azure that minimizes public exposure end-to-end: App Service behind an Application Gateway with SSL termination, a primary-replica MySQL setup, Redis Cache and Blob Storage on private endpoints, and multi-subnet VNet isolation, with dynamic resource naming to avoid collisions.</p>
                         <div class="project-metrics">
-                            <span class="metric"><i class="fas fa-shield-alt"></i> Zero-trust</span>
-                            <span class="metric"><i class="fas fa-lock"></i> Private Network</span>
+                            <span class="metric"><i class="fas fa-shield-alt"></i> Private Endpoints</span>
+                            <span class="metric"><i class="fas fa-sitemap"></i> Modular HCL</span>
                         </div>
                         <div class="project-tags">
                             <span class="project-tag">Terraform</span>
                             <span class="project-tag">Azure</span>
                             <span class="project-tag">Zero-trust</span>
-                            <span class="project-tag">Private Network</span>
+                            <span class="project-tag">Application Gateway</span>
                             <span class="project-tag">IaC</span>
                         </div>
                     </div>
                     <div class="project-item" data-category="infrastructure">
                         <div class="project-header">
-                            <h4><a href="projects/project_kubernetes_on_premise.html"><i class="fab fa-github"></i> Kubernetes On-Premise</a></h4>
-                            <span class="project-status demo">Demo</span>
+                            <h4><a href="https://github.com/abdelrhman-kh/KubernetesOnPremise" target="_blank"><i class="fab fa-github"></i> Kubernetes On-Premise</a></h4>
+                            <span class="project-status demo">Open Source</span>
                         </div>
-                        <p>Automated on-premises Kubernetes cluster installation with essential assets like Flannel, Dashboard, MetalLB, and Metrics Server. Streamlined deployment processes and reduced setup complexity for enterprise environments.</p>
+                        <p>MIT-licensed Bash script that fully automates deploying a Kubernetes cluster on bare-metal or VMs across Ubuntu 18.04/20.04/22.04, installing the container runtime plus Flannel networking, the Dashboard, MetalLB, and metrics-server through a simple interactive prompt.</p>
+                        <div class="project-metrics">
+                            <span class="metric"><i class="fas fa-star"></i> 15 Stars</span>
+                            <span class="metric"><i class="fas fa-code-branch"></i> 1 Fork</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">Bash</span>
                             <span class="project-tag">On-Premise</span>
                             <span class="project-tag">Automation</span>
                             <span class="project-tag">MetalLB</span>
                         </div>
                     </div>
+                    <div class="project-item" data-category="infrastructure">
+                        <div class="project-header">
+                            <h4><a href="https://github.com/abdelrhman-kh/nfs-server-and-nfs-persistent-volume" target="_blank"><i class="fab fa-github"></i> NFS Server &amp; Kubernetes Persistent Volumes</a></h4>
+                            <span class="project-status demo">Open Source</span>
+                        </div>
+                        <p>Shell scripts and Kubernetes manifests that stand up an NFS server and client, then wire it into a cluster as dynamically-provisioned Persistent Volumes and Claims so pods can share durable storage.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">NFS</span>
+                            <span class="project-tag">Storage</span>
+                            <span class="project-tag">Shell</span>
+                        </div>
+                    </div>
                     <div class="project-item" data-category="automation">
                         <div class="project-header">
-                            <h4><a href="projects/project_run_sql_script_program.html"><i class="fab fa-github"></i> SQL Script Management Tool</a></h4>
-                            <span class="project-status demo">Demo</span>
+                            <h4><a href="https://github.com/abdelrhman-kh/RunSqlScriptProgram" target="_blank"><i class="fab fa-github"></i> SQL Script Management Tool</a></h4>
+                            <span class="project-status demo">Open Source</span>
                         </div>
-                        <p>Enhanced database management with a .NET MVC 6.0 application for managing MSSQL connection strings and executing scripts efficiently. Improved database deployment workflows and reduced manual errors.</p>
+                        <p>A .NET MVC 6.0 app (Entity Framework Code-First) for managing SQL Server connection strings and batch-running SQL scripts, with multi-file upload, automated timestamp-based file organization, Live/Prelive environment tagging, and per-run error/success logging.</p>
                         <div class="project-tags">
-                            <span class="project-tag">.NET Core</span>
+                            <span class="project-tag">.NET MVC</span>
+                            <span class="project-tag">Entity Framework</span>
                             <span class="project-tag">MSSQL</span>
-                            <span class="project-tag">Database</span>
+                            <span class="project-tag">C#</span>
                             <span class="project-tag">Automation</span>
                         </div>
                     </div>
                     <div class="project-item" data-category="automation">
                         <div class="project-header">
-                            <h4><a href="projects/project_terraform_create_ec2_instance.html"><i class="fab fa-github"></i> Terraform EC2 Automation</a></h4>
-                            <span class="project-status demo">Demo</span>
+                            <h4><a href="https://github.com/abdelrhman-kh/terraform-create-ec2-instance" target="_blank"><i class="fab fa-github"></i> Terraform EC2 Automation</a></h4>
+                            <span class="project-status demo">Open Source</span>
                         </div>
-                        <p>Created comprehensive Terraform project to automate EC2 instance creation and configuration, streamlining AWS infrastructure deployment and reducing setup time by 50% for development teams.</p>
+                        <p>A clean, modular Terraform project (providers, variables, security groups, outputs) that provisions an AWS EC2 instance with an SSH key pair end-to-end — init, plan, apply, connect, and teardown.</p>
                         <div class="project-tags">
                             <span class="project-tag">Terraform</span>
                             <span class="project-tag">AWS</span>
                             <span class="project-tag">EC2</span>
-                            <span class="project-tag">Infrastructure</span>
+                            <span class="project-tag">IaC</span>
                         </div>
                     </div>
                     <div class="project-item" data-category="automation">
                         <div class="project-header">
-                            <h4><a href="projects/project_lambda_function_notified_sns_subscription.html"><i class="fab fa-github"></i> Lambda SNS Monitoring</a></h4>
-                            <span class="project-status demo">Demo</span>
+                            <h4><a href="https://github.com/abdelrhman-kh/lambda-function-notified-sns-subscription" target="_blank"><i class="fab fa-github"></i> Lambda SNS Monitoring</a></h4>
+                            <span class="project-status demo">Open Source</span>
                         </div>
-                        <p>Developed AWS Lambda function to monitor CloudWatch logs and trigger SNS notifications upon activity, enhancing monitoring and alerting capabilities for distributed systems and improving incident response times.</p>
+                        <p>A Python AWS Lambda function that watches another Lambda's CloudWatch Logs and publishes an SNS notification the moment it executes, with IAM roles scoped for least-privilege log access.</p>
                         <div class="project-tags">
                             <span class="project-tag">AWS Lambda</span>
+                            <span class="project-tag">Python</span>
                             <span class="project-tag">CloudWatch</span>
                             <span class="project-tag">SNS</span>
                             <span class="project-tag">Monitoring</span>
+                        </div>
+                    </div>
+                    <div class="project-item" data-category="automation">
+                        <div class="project-header">
+                            <h4><a href="https://github.com/abdelrhman-kh/lambda-function-craete-instances-snapshots-of-lightsail" target="_blank"><i class="fab fa-github"></i> Lightsail Snapshot Automation</a></h4>
+                            <span class="project-status demo">Open Source</span>
+                        </div>
+                        <p>A Python 3.9 Lambda function that sweeps every Amazon Lightsail region, finds running instances, and creates timestamped snapshots automatically — a scheduled backup safety net with no manual console work.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS Lambda</span>
+                            <span class="project-tag">Lightsail</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Backup</span>
                         </div>
                     </div>
                 </div>

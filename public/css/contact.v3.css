@@ -1,0 +1,191 @@
+/* ===== Version 3 ("Farmstand") — contact page ===== */
+
+[data-version="v3"] #contact h1,
+[data-version="v3"] #contact h3 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+[data-version="v3"][data-theme="dark"] #contact h1,
+[data-version="v3"][data-theme="dark"] #contact h3 {
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"] .contact-intro {
+  color: var(--text-secondary);
+}
+
+[data-version="v3"] .contact-card {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] .contact-card:hover {
+  transform: translate(-2px, -6px);
+  box-shadow: 7px 11px 0 var(--ink);
+}
+
+[data-version="v3"] .contact-icon {
+  background: var(--accent-yellow);
+  border: 2.5px solid var(--ink-fixed);
+}
+
+[data-version="v3"] .contact-card:hover .contact-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: none;
+}
+
+[data-version="v3"] .contact-icon i {
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .contact-card h4 {
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .contact-card p {
+  color: var(--text-secondary);
+}
+
+[data-version="v3"] .contact-link {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  border-radius: var(--radius-pill);
+}
+
+[data-version="v3"] .contact-link:hover {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .contact-form-section {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] .contact-form-section h4 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+[data-version="v3"] .form-group label {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+[data-version="v3"] .form-group label i {
+  color: var(--accent-color);
+}
+
+[data-version="v3"] .form-group input,
+[data-version="v3"] .form-group select,
+[data-version="v3"] .form-group textarea {
+  border: 2.5px solid var(--ink);
+  border-radius: 14px;
+  background: var(--light-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+[data-version="v3"] .form-group input:focus,
+[data-version="v3"] .form-group select:focus,
+[data-version="v3"] .form-group textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--accent-yellow);
+  transform: none;
+}
+
+[data-version="v3"] .submit-btn {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  box-shadow: none;
+  border: 2.5px solid var(--ink);
+}
+
+[data-version="v3"] .submit-btn:hover {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+[data-version="v3"][data-theme="dark"] .submit-btn {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"][data-theme="dark"] .submit-btn:hover {
+  background: var(--ink-fixed);
+  color: var(--accent-yellow);
+  box-shadow: 4px 4px 0 var(--accent-yellow);
+}
+
+/* Fixed yellow band in both themes — text/icons/pills on it use the fixed
+   ink, never adaptive --ink (see the --ink-fixed note in common.v3.css). */
+[data-version="v3"] .availability-section {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border: 2.5px solid var(--ink-fixed);
+  border-radius: var(--border-radius);
+}
+
+[data-version="v3"] .availability-tag {
+  background: var(--ink-fixed);
+  color: var(--accent-yellow);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border: none;
+  backdrop-filter: none;
+  border-radius: var(--radius-pill);
+}
+
+[data-version="v3"] .availability-tag:hover {
+  background: var(--cream);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"][data-theme="dark"] .contact-card {
+  background: var(--light-card);
+  border: var(--ink-border);
+  backdrop-filter: none;
+}
+
+[data-version="v3"][data-theme="dark"] .contact-card:hover {
+  border-color: var(--ink);
+  box-shadow: 7px 11px 0 var(--ink);
+}
+
+[data-version="v3"][data-theme="dark"] .contact-form-section {
+  background: var(--light-card);
+  border: var(--ink-border);
+  backdrop-filter: none;
+}
+
+[data-version="v3"][data-theme="dark"] .form-group input,
+[data-version="v3"][data-theme="dark"] .form-group select,
+[data-version="v3"][data-theme="dark"] .form-group textarea {
+  background: var(--dark-bg);
+  border-color: rgba(251, 249, 241, 0.5);
+  color: var(--text-primary);
+}
+
+[data-version="v3"][data-theme="dark"] .form-group input:focus,
+[data-version="v3"][data-theme="dark"] .form-group select:focus,
+[data-version="v3"][data-theme="dark"] .form-group textarea:focus {
+  border-color: var(--accent-yellow);
+  background: var(--dark-bg);
+  box-shadow: 3px 3px 0 var(--accent-yellow);
+}

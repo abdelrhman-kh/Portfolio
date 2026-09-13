@@ -312,21 +312,31 @@ function initProjectStats() {
 function createProjectStats() {
     const projectsSection = document.querySelector('#projects');
     const h3 = projectsSection.querySelector('h3');
-    
+
+    // Derive the real counts from the project cards themselves instead of
+    // hardcoding numbers that silently go stale whenever a project is
+    // added, removed, or its status changes.
+    const projectItems = document.querySelectorAll('.project-item');
+    const totalProjects = projectItems.length;
+    const liveProjects = document.querySelectorAll('.project-status.live').length;
+    const uniqueTechnologies = new Set(
+        Array.from(document.querySelectorAll('.project-tag')).map(tag => tag.textContent.trim().toLowerCase())
+    ).size;
+
     const statsHTML = `
         <div class="project-stats">
             <h4>Project Portfolio Overview</h4>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number" data-count="8">0</span>
+                    <span class="stat-number" data-count="${totalProjects}">0</span>
                     <span class="stat-label">Total Projects</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-count="4">0</span>
+                    <span class="stat-number" data-count="${liveProjects}">0</span>
                     <span class="stat-label">Live Projects</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-number" data-count="${uniqueTechnologies}">0</span>
                     <span class="stat-label">Technologies Used</span>
                 </div>
                 <div class="stat-item">
@@ -336,7 +346,7 @@ function createProjectStats() {
             </div>
         </div>
     `;
-    
+
     h3.insertAdjacentHTML('afterend', statsHTML);
 }
 
@@ -369,9 +379,15 @@ function animateStats() {
 function updateProjectCount() {
     const visibleProjects = document.querySelectorAll('.project-item[style*="opacity: 1"], .project-item:not([style*="opacity"])');
     const totalProjects = document.querySelectorAll('.project-item');
-    
-    // Update count in stats if it exists
-    const totalStat = document.querySelector('.stat-number[data-count="8"]');
+
+    // Update the "Total Projects" stat if it exists, found by its label
+    // rather than a hardcoded count so it keeps working as projects are
+    // added or removed.
+    const totalStatItem = Array.from(document.querySelectorAll('.stat-item')).find(item => {
+        const label = item.querySelector('.stat-label');
+        return label && label.textContent.trim() === 'Total Projects';
+    });
+    const totalStat = totalStatItem && totalStatItem.querySelector('.stat-number');
     if (totalStat && visibleProjects.length !== totalProjects.length) {
         totalStat.textContent = visibleProjects.length;
     }

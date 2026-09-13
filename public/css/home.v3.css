@@ -1,0 +1,281 @@
+/* ===== Version 3 ("Farmstand") — home page ===== */
+
+/* ---------- Hero ---------- */
+[data-version="v3"] .hero {
+  min-height: 80vh;
+  padding: 9rem 2rem 6rem;
+  position: relative;
+}
+
+[data-version="v3"] .hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 620px;
+  max-height: 620px;
+  background: radial-gradient(circle, rgba(244, 179, 12, 0.35) 0%, rgba(244, 179, 12, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-version="v3"] .floating-icons {
+  display: none;
+}
+
+/* Strip the "terminal window" chrome — V3 puts copy straight on the hero
+   background, brand-poster style, instead of inside a fake code editor. */
+[data-version="v3"] .hero-terminal {
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+[data-version="v3"] .hero-terminal-bar,
+[data-version="v3"] .hero-prompt-line {
+  display: none;
+}
+
+[data-version="v3"] .hero-terminal-body {
+  padding: 0;
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .hero-badge {
+  background: var(--accent-yellow);
+  border: 2.5px solid var(--ink-fixed);
+  color: var(--ink-fixed);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+[data-version="v3"] .hero-badge .status-dot {
+  background: var(--ink-fixed);
+  box-shadow: none;
+}
+
+[data-version="v3"] .hero-content h1 {
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  color: var(--text-primary);
+  text-shadow: none;
+  margin-bottom: 0.5rem;
+}
+
+[data-version="v3"] .hero-content h2 {
+  font-family: var(--font-script);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 400;
+  color: var(--accent-color);
+  transform: rotate(-2deg);
+  margin-bottom: 2rem;
+  opacity: 1;
+}
+
+[data-version="v3"][data-theme="dark"] .hero-content h2 {
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"] .hero-kicker-slash {
+  display: none;
+}
+
+[data-version="v3"] .hero-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-version="v3"] .hero-buttons {
+  justify-content: center;
+}
+
+[data-version="v3"] .scroll-cue {
+  color: var(--ink);
+  opacity: 0.6;
+}
+
+/* ---------- Highlights ---------- */
+[data-version="v3"] #highlight {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] #highlight::before {
+  display: none;
+}
+
+[data-version="v3"] #highlight p {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+}
+
+/* ---------- Stats: the full-bleed yellow "by the numbers" band ---------- */
+[data-version="v3"] .stats-section {
+  background: var(--accent-yellow);
+  border-top: var(--ink-border);
+  border-bottom: var(--ink-border);
+}
+
+[data-version="v3"][data-theme="dark"] .stats-section {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .stats-section::before {
+  display: none;
+}
+
+/* The yellow stats band and the cream stat cards inside it stay the same
+   fixed colors in both themes (see --ink-fixed note in common.v3.css), so
+   every bit of text/icon/border here uses the fixed ink, never adaptive
+   --ink — otherwise it flips to cream in dark mode and vanishes against
+   its own fixed-cream/fixed-yellow background. */
+[data-version="v3"] .stats-container > h3 {
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-item {
+  background: var(--cream);
+  border: 2.5px solid var(--ink-fixed);
+  border-radius: var(--border-radius);
+  box-shadow: 4px 4px 0 var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-item:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 6px 8px 0 var(--ink-fixed);
+  background: var(--cream);
+}
+
+[data-version="v3"] .stat-item i {
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-item h3 {
+  color: var(--ink-fixed);
+  font-size: 2.75rem;
+  text-shadow: none;
+}
+
+[data-version="v3"] .stat-item p {
+  color: var(--ink-fixed-soft);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Recent projects ---------- */
+[data-version="v3"] .project-item {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] .project-item::before {
+  display: none;
+}
+
+[data-version="v3"] .project-item:hover {
+  transform: translate(-2px, -6px);
+  box-shadow: 7px 11px 0 var(--ink);
+}
+
+[data-version="v3"] .project-item h4 a {
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .project-item h4 a:hover {
+  color: var(--accent-color);
+}
+
+[data-version="v3"] .tags span {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  font-family: var(--font-mono);
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+[data-version="v3"] .tags span:hover {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+/* Same filled-pill inversion as the nav/buttons: an --ink-filled chip reads
+   as a solid "ink stamp" in light mode, but flips to a washed-out cream chip
+   with low-contrast yellow text once --ink flips in dark mode. */
+[data-version="v3"][data-theme="dark"] .tags span {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+/* ---------- CTA band: always a dark ink panel in both themes, so it uses
+   the fixed ink, never adaptive --ink (which would flip it to a cream band
+   in dark mode). ---------- */
+[data-version="v3"] .cta-section {
+  background: var(--ink-fixed);
+  border-radius: var(--border-radius);
+}
+
+[data-version="v3"] .cta-section .section-kicker,
+[data-version="v3"][data-theme="dark"] .cta-section .section-kicker {
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"] .cta-section h3,
+[data-version="v3"][data-theme="dark"] .cta-section h3 {
+  color: var(--cream);
+}
+
+[data-version="v3"] .cta-section p {
+  color: rgba(251, 249, 241, 0.75);
+}
+
+[data-version="v3"] .cta-section .cta-button.primary {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"] .cta-section .cta-button.primary:hover {
+  background: var(--cream);
+  color: var(--ink-fixed);
+  border-color: var(--cream);
+  box-shadow: 3px 3px 0 var(--accent-yellow);
+}
+
+[data-version="v3"] .cta-section .cta-button:not(.primary) {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+
+[data-version="v3"] .cta-section .cta-button:not(.primary):hover {
+  background: var(--cream);
+  color: var(--ink-fixed);
+}
+
+@media (max-width: 768px) {
+  [data-version="v3"] .hero {
+    padding: 7rem 1rem 4rem;
+  }
+
+  [data-version="v3"] .hero::before {
+    width: 80vw;
+    height: 80vw;
+  }
+}

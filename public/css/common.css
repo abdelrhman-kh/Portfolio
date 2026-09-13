@@ -333,26 +333,25 @@ nav {
   transform: rotate(180deg);
 }
 
-/* Version Toggle — switches between the two full site designs (each with
-   its own light/dark mode), sitting right next to the theme toggle. */
+/* Version Toggle — a single button showing the active site design (V1 / V2
+   / V3); clicking it cycles to the next one. Each design still has its own
+   light/dark mode via the theme toggle next to it. */
 .version-toggle {
   background: none;
   border: 2px solid var(--accent-color);
   color: var(--accent-color);
+  width: 45px;
   height: 45px;
-  min-width: 45px;
-  padding: 0 0.75rem;
-  border-radius: var(--radius-pill);
+  border-radius: 50%;
   cursor: pointer;
   transition: var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  white-space: nowrap;
 }
 
 .version-toggle:hover {

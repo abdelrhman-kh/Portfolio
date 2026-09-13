@@ -1,0 +1,474 @@
+/* ===== Version 3 ("Farmstand") — a bold, playful, editorial design
+   inspired by b-egg.farm: cream paper background, ink-black type, one loud
+   mustard-yellow accent, chunky condensed display headlines, a hand-lettered
+   brush-script accent for small callouts, and monospace labels. Scoped
+   entirely under [data-version="v3"] so it layers cleanly over the base
+   (V1 "Terminal") styles without touching them. ===== */
+
+[data-version="v3"] {
+  --primary-color: #171310;
+  --primary-gradient: linear-gradient(135deg, #F4B30C 0%, #F4B30C 100%);
+  --secondary-gradient: linear-gradient(135deg, #171310 0%, #171310 100%);
+  --accent-color: #C98A00;
+  --accent-yellow: #F4B30C;
+  --accent-cyan: #C98A00;
+  --accent-warm: #F4B30C;
+  --accent-warm-soft: rgba(244, 179, 12, 0.16);
+  --accent-hover: #171310;
+  --ink: #171310;
+  --cream: #FBF9F1;
+  --dark-bg: #17130D;
+  --dark-card: #241E14;
+  --light-bg: #FBF9F1;
+  --light-card: #FFFFFF;
+  --card-background: #FFFFFF;
+  --background-color: #FBF9F1;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(23, 19, 16, 0.15);
+  --shadow-light: 0 2px 0 rgba(23, 19, 16, 0.08);
+  --shadow-medium: 0 6px 0 rgba(23, 19, 16, 0.1);
+  --shadow-heavy: 0 16px 40px -12px rgba(23, 19, 16, 0.35);
+  --shadow-glow: 0 8px 30px rgba(244, 179, 12, 0.35);
+  --text-primary: #171310;
+  --text-secondary: #5b5347;
+  --text-light: #FBF9F1;
+  --border-radius: 22px;
+  --radius-pill: 999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: 'Anton', 'Archivo Black', 'Inter', sans-serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-script: 'Permanent Marker', cursive;
+  --ink-border: 2.5px solid var(--ink);
+  /* Fixed brand ink — deliberately NEVER redefined in the dark block below.
+     --ink adapts (flips to cream) so borders/shadows on cards that also
+     adapt (var(--light-card)) keep reading against their own background.
+     But some surfaces stay the same fixed cream/yellow in both themes (the
+     stats band, badges, tag pills, footer) — text/icons sitting on THOSE
+     must stay fixed dark ink too, or they vanish when --ink flips. */
+  --ink-fixed: #171310;
+  --ink-fixed-soft: rgba(23, 19, 16, 0.65);
+}
+
+[data-version="v3"][data-theme="dark"] {
+  --text-primary: #FBF9F1;
+  --text-secondary: #C9C2AE;
+  --light-bg: #17130D;
+  --light-card: #241E14;
+  --card-background: #241E14;
+  --background-color: #17130D;
+  --glass-bg: rgba(36, 30, 20, 0.75);
+  --glass-border: rgba(251, 249, 241, 0.16);
+  --shadow-light: 0 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-medium: 0 6px 0 rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+  --ink: #FBF9F1;
+  --ink-border: 2.5px solid rgba(251, 249, 241, 0.85);
+  --accent-color: #F4B30C;
+}
+
+/* ---------- Base ---------- */
+[data-version="v3"] body {
+  background: var(--light-bg);
+  background-image: none;
+  font-family: var(--font-body);
+}
+
+[data-version="v3"][data-theme="dark"] body {
+  background: var(--dark-bg);
+  background-image: none;
+}
+
+[data-version="v3"] h1,
+[data-version="v3"] h2,
+[data-version="v3"] h3,
+[data-version="v3"] h4,
+[data-version="v3"] h5,
+[data-version="v3"] h6 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+[data-version="v3"] ::selection {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] html {
+  scrollbar-color: var(--accent-yellow) transparent;
+}
+
+[data-version="v3"] ::-webkit-scrollbar-thumb {
+  background: var(--accent-yellow);
+  border: 2px solid var(--light-bg);
+}
+
+[data-version="v3"][data-theme="dark"] ::-webkit-scrollbar-thumb {
+  border-color: var(--dark-bg);
+}
+
+[data-version="v3"] a:focus-visible,
+[data-version="v3"] button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Nav ---------- */
+[data-version="v3"] nav {
+  background: rgba(251, 249, 241, 0.92);
+  border-bottom: 2px solid var(--ink);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-version="v3"][data-theme="dark"] nav {
+  background: rgba(23, 19, 16, 0.92);
+  border-bottom-color: rgba(251, 249, 241, 0.35);
+}
+
+@media (min-width: 769px) {
+  [data-version="v3"] nav {
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-pill);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  [data-version="v3"][data-theme="dark"] nav {
+    border-color: rgba(251, 249, 241, 0.35);
+    box-shadow: 4px 4px 0 rgba(251, 249, 241, 0.35);
+  }
+
+  /* Terminal window-dot decoration is V1-only */
+  [data-version="v3"] nav::before {
+    content: none;
+  }
+}
+
+[data-version="v3"] .nav-profile-pic {
+  background:
+    linear-gradient(var(--light-bg), var(--light-bg)) padding-box,
+    var(--accent-yellow) border-box;
+  border: 3px solid transparent;
+}
+
+[data-version="v3"][data-theme="dark"] .nav-profile-pic {
+  background:
+    linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
+    var(--accent-yellow) border-box;
+}
+
+[data-version="v3"] .nav-profile-pic:hover {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 0 0 4px rgba(244, 179, 12, 0.35);
+}
+
+[data-version="v3"] #nav-links a {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+[data-version="v3"] #nav-links a:hover {
+  background: rgba(23, 19, 16, 0.06);
+}
+
+[data-version="v3"][data-theme="dark"] #nav-links a:hover {
+  background: rgba(251, 249, 241, 0.1);
+}
+
+[data-version="v3"] #nav-links a.active {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  box-shadow: none;
+}
+
+/* Nav's own background stays a fixed cream/dark pill in both themes, so a
+   filled "active" state built from adaptive --ink loses contrast once --ink
+   flips to cream in dark mode. Invert to yellow-fill/fixed-ink instead. */
+[data-version="v3"][data-theme="dark"] #nav-links a.active {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] #nav-links a.active::after {
+  background: var(--accent-yellow);
+}
+
+/* Theme toggle */
+[data-version="v3"] .theme-toggle {
+  border: 2.5px solid var(--ink);
+  color: var(--ink);
+}
+
+[data-version="v3"] .theme-toggle:hover {
+  background: var(--ink);
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"][data-theme="dark"] .theme-toggle:hover {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+/* Version toggle — the brand's black-pill/yellow-label button language */
+[data-version="v3"] .version-toggle {
+  border: 2.5px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-mono);
+}
+
+[data-version="v3"] .version-toggle:hover {
+  background: var(--ink);
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"][data-theme="dark"] .version-toggle:hover {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .menu-icon i {
+  color: var(--text-primary);
+}
+
+/* ---------- Section kicker: dash-flanked label instead of "$ " prompt ---------- */
+[data-version="v3"] .section-kicker {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-color);
+  gap: 0.6rem;
+}
+
+[data-version="v3"][data-theme="dark"] .section-kicker {
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"] .section-kicker::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  opacity: 1;
+}
+
+[data-version="v3"] .section-kicker::after {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  margin-left: 0;
+  animation: none;
+}
+
+[data-version="v3"] section h3 {
+  font-size: 2.75rem;
+}
+
+[data-version="v3"] section h3:not(.stat-number):not(.stat-card *)::after {
+  background: var(--accent-yellow);
+  height: 6px;
+  width: 70px;
+  border-radius: 3px;
+}
+
+/* ---------- Footer: always the dark ink panel, brand-style ---------- */
+[data-version="v3"] footer {
+  background: var(--ink);
+  color: var(--cream);
+  border-top: none;
+}
+
+[data-version="v3"][data-theme="dark"] footer {
+  background: #0f0c08;
+  color: var(--cream);
+}
+
+[data-version="v3"] .footer-brand {
+  font-family: var(--font-display);
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--accent-yellow);
+  font-size: 2rem;
+}
+
+[data-version="v3"] .footer-tagline {
+  color: rgba(251, 249, 241, 0.7);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+[data-version="v3"] .footer-social a {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-radius: 50%;
+}
+
+[data-version="v3"] .footer-social a:hover {
+  background: var(--cream);
+  color: var(--ink-fixed);
+  box-shadow: none;
+  transform: translateY(-3px) rotate(-6deg);
+}
+
+[data-version="v3"] footer > p {
+  color: rgba(251, 249, 241, 0.45);
+}
+
+/* ---------- Back to top ---------- */
+[data-version="v3"] #back-to-top {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+[data-version="v3"] #back-to-top:hover {
+  background: var(--accent-yellow);
+  color: var(--ink);
+}
+
+/* This floating button sits directly on the page background rather than a
+   fixed surface, but its default fill uses adaptive --ink — which flips to
+   cream in dark mode and washes out against an already-dark page. Pin it to
+   the always-legible yellow-fill/fixed-ink pairing in dark mode instead. */
+[data-version="v3"][data-theme="dark"] #back-to-top {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"][data-theme="dark"] #back-to-top:hover {
+  background: var(--ink-fixed);
+  color: var(--accent-yellow);
+}
+
+/* ---------- Loading screen: always a dark ink overlay in both themes ---------- */
+[data-version="v3"] .loading-screen {
+  background: var(--ink-fixed);
+}
+
+[data-version="v3"] .loader {
+  border-color: rgba(244, 179, 12, 0.3);
+  border-top-color: var(--accent-yellow);
+}
+
+/* ---------- Shared "brand pill" buttons (used by home/about/etc.) ---------- */
+[data-version="v3"] .download-cv,
+[data-version="v3"] .hero-cta,
+[data-version="v3"] .cta-button {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill);
+  border-width: 2.5px;
+}
+
+[data-version="v3"] .download-cv::before,
+[data-version="v3"] .hero-cta::before,
+[data-version="v3"] .download-cv::after,
+[data-version="v3"] .hero-cta::after {
+  content: none;
+}
+
+[data-version="v3"] .download-cv.primary,
+[data-version="v3"] .cta-button.primary {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  border-color: var(--ink);
+}
+
+[data-version="v3"] .download-cv.primary:hover,
+[data-version="v3"] .cta-button.primary:hover {
+  background: var(--accent-yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Same inversion as the nav/version-switch/back-to-top: these solid "brand
+   pill" buttons default to an --ink fill, which turns cream in dark mode and
+   loses contrast against the page. Flip to yellow-fill/fixed-ink instead,
+   and swap the hover state to match. */
+[data-version="v3"][data-theme="dark"] .download-cv.primary,
+[data-version="v3"][data-theme="dark"] .cta-button.primary {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"][data-theme="dark"] .download-cv.primary:hover,
+[data-version="v3"][data-theme="dark"] .cta-button.primary:hover {
+  background: var(--ink-fixed);
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  box-shadow: 3px 3px 0 var(--accent-yellow);
+}
+
+[data-version="v3"] .hero-cta,
+[data-version="v3"] .cta-button:not(.primary) {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+[data-version="v3"][data-theme="dark"] .hero-cta,
+[data-version="v3"][data-theme="dark"] .cta-button:not(.primary) {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+
+[data-version="v3"] .hero-cta:hover,
+[data-version="v3"] .cta-button:not(.primary):hover {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  transform: translateY(-3px);
+}
+
+[data-version="v3"][data-theme="dark"] .hero-cta:hover,
+[data-version="v3"][data-theme="dark"] .cta-button:not(.primary):hover {
+  background: var(--cream);
+  color: var(--ink-fixed);
+}
+
+/* ---------- Mobile nav overlay ---------- */
+@media (max-width: 768px) {
+  [data-version="v3"] #nav-links {
+    background: rgba(251, 249, 241, 0.99);
+  }
+
+  [data-version="v3"][data-theme="dark"] #nav-links {
+    background: rgba(23, 19, 16, 0.99);
+  }
+
+  [data-version="v3"] #nav-links a {
+    background: rgba(23, 19, 16, 0.06);
+    border-radius: var(--radius-pill);
+  }
+
+  [data-version="v3"][data-theme="dark"] #nav-links a {
+    background: rgba(251, 249, 241, 0.08);
+  }
+
+  [data-version="v3"] #nav-links a:hover,
+  [data-version="v3"] #nav-links a.active {
+    background: var(--ink);
+    color: var(--accent-yellow);
+    border-color: var(--ink);
+  }
+
+  [data-version="v3"][data-theme="dark"] #nav-links a:hover,
+  [data-version="v3"][data-theme="dark"] #nav-links a.active {
+    background: var(--accent-yellow);
+    color: var(--ink-fixed);
+    border-color: var(--accent-yellow);
+  }
+}

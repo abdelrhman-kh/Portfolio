@@ -1,0 +1,200 @@
+/* ===== Version 3 ("Farmstand") — experience page ===== */
+
+[data-version="v3"] .experience-item {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] .experience-item::before {
+  background: var(--accent-yellow);
+  height: 6px;
+}
+
+[data-version="v3"] .experience-item:hover {
+  transform: translate(-2px, -6px);
+  box-shadow: 7px 11px 0 var(--ink);
+}
+
+[data-version="v3"] .experience-item h4 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: none;
+}
+
+[data-version="v3"] .experience-item span {
+  color: var(--ink-fixed);
+  background: var(--accent-yellow);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-version="v3"] .company-icon {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  border-radius: 12px;
+  box-shadow: none;
+  border: 2px solid var(--ink);
+}
+
+/* Filled icon badge on the adaptive card background — invert like the
+   nav-active/tag-pill treatment so it doesn't fade to cream-on-cream. */
+[data-version="v3"][data-theme="dark"] .company-icon {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"] .role-skills {
+  border-top: 2px solid rgba(23, 19, 16, 0.12);
+}
+
+[data-version="v3"][data-theme="dark"] .role-skills {
+  border-top-color: rgba(251, 249, 241, 0.15);
+}
+
+[data-version="v3"] .role-skills h5 {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+[data-version="v3"] .skill-badge {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--ink);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-version="v3"][data-theme="dark"] .skill-badge {
+  border-color: rgba(251, 249, 241, 0.6);
+}
+
+[data-version="v3"] .skill-badge:hover {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+
+[data-version="v3"][data-theme="dark"] .skill-badge:hover {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"] .achievements {
+  background: rgba(244, 179, 12, 0.14);
+  border-left: 4px solid var(--ink);
+  border-radius: 10px;
+}
+
+[data-version="v3"] .achievements h5,
+[data-version="v3"] .achievements h5 i,
+[data-version="v3"] .achievements li::before {
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .experience-timeline::before {
+  background: var(--ink);
+  width: 3px;
+}
+
+[data-version="v3"] .experience-timeline .experience-item::after {
+  background: var(--accent-yellow);
+  border: 3px solid var(--ink);
+}
+
+[data-version="v3"] .experience-item.current-role {
+  border: var(--ink-border);
+  background: var(--light-card);
+  box-shadow: 6px 6px 0 var(--accent-yellow);
+}
+
+[data-version="v3"] .experience-item.current-role::before {
+  background: var(--accent-yellow);
+}
+
+/* Career stats: fixed yellow band + fixed cream cards in both themes, so
+   every bit of text/icon/border here uses the fixed ink (see the --ink-fixed
+   note in common.v3.css), never adaptive --ink. */
+[data-version="v3"] .career-stats {
+  background: var(--accent-yellow);
+  border: 2.5px solid var(--ink-fixed);
+  border-radius: var(--border-radius);
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-card {
+  background: var(--cream);
+  border: 2.5px solid var(--ink-fixed);
+  border-radius: var(--border-radius);
+  box-shadow: 3px 3px 0 var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-card:hover {
+  background: var(--cream);
+  transform: translate(-2px, -3px);
+}
+
+[data-version="v3"] .stat-card h3 {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--ink-fixed);
+}
+
+[data-version="v3"] .stat-card p {
+  color: var(--ink-fixed-soft);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+[data-version="v3"] .stat-card i {
+  color: var(--ink-fixed);
+}
+
+/* Recommendations */
+[data-version="v3"] .recommendation-item {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-left: 6px solid var(--accent-yellow);
+  border-radius: var(--border-radius);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+[data-version="v3"] .recommendation-item::before {
+  color: var(--accent-color);
+  opacity: 0.5;
+}
+
+/* CTA: always a dark ink panel in both themes, like the home page's
+   CTA band — uses the fixed ink so it never flips to cream in dark mode. */
+[data-version="v3"] .experience-cta {
+  background: var(--ink-fixed);
+  color: var(--cream);
+  border-radius: var(--border-radius);
+}
+
+[data-version="v3"] .experience-cta h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+[data-version="v3"][data-theme="dark"] .experience-item,
+[data-version="v3"][data-theme="dark"] .recommendation-item {
+  background: var(--light-card);
+  border: var(--ink-border);
+  backdrop-filter: none;
+}
+
+[data-version="v3"][data-theme="dark"] .achievements {
+  background: rgba(244, 179, 12, 0.18);
+}

@@ -1,0 +1,143 @@
+/* ===== Version 3 ("Farmstand") — about page ===== */
+
+[data-version="v3"] .about-text {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+}
+
+[data-version="v3"] .about-highlights {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+[data-version="v3"] .about-highlights h4 {
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .about-highlights h4::before {
+  background: var(--accent-yellow);
+  width: 6px;
+}
+
+[data-version="v3"] .about-highlights li i {
+  color: var(--accent-color);
+}
+
+[data-version="v3"][data-theme="dark"] .about-highlights li i {
+  color: var(--accent-yellow);
+}
+
+[data-version="v3"] .about-highlights li:hover {
+  color: var(--text-primary);
+  transform: translateX(6px);
+}
+
+/* Journey timeline */
+[data-version="v3"] .journey-timeline {
+  border-top: var(--ink-border);
+}
+
+[data-version="v3"] .journey-timeline h4 {
+  color: var(--text-primary);
+}
+
+[data-version="v3"] .timeline::before {
+  background: var(--ink);
+  width: 3px;
+}
+
+[data-version="v3"] .timeline-date {
+  background: var(--ink);
+  color: var(--accent-yellow);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  box-shadow: none;
+  border: 2px solid var(--ink);
+}
+
+/* This filled badge sits on the adaptive page background, so — like the
+   nav-active/version-switch/tag-pill treatment — it needs to invert to
+   yellow-fill/fixed-ink in dark mode rather than fading to a cream-on-cream
+   badge once --ink flips. */
+[data-version="v3"][data-theme="dark"] .timeline-date {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border-color: var(--accent-yellow);
+}
+
+[data-version="v3"] .timeline-content {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+[data-version="v3"] .timeline-content:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 6px 8px 0 var(--ink);
+}
+
+[data-version="v3"] .timeline-content h5 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+[data-version="v3"] .timeline-item::after {
+  background: var(--accent-yellow);
+  border: 3px solid var(--ink);
+}
+
+/* Skills summary band: always a dark ink panel in both themes, like the CTA
+   band — uses the fixed ink so it doesn't turn cream in dark mode. */
+[data-version="v3"] .skills-summary {
+  background: var(--ink-fixed);
+  color: var(--cream);
+  border-radius: var(--border-radius);
+}
+
+[data-version="v3"] .skill-tag {
+  background: var(--accent-yellow);
+  color: var(--ink-fixed);
+  border: 2px solid var(--ink-fixed);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-version="v3"] .skill-tag:hover {
+  background: var(--cream);
+  transform: translateY(-3px);
+}
+
+/* Personal interests */
+[data-version="v3"] .personal-interests {
+  background: var(--light-card);
+  border: var(--ink-border);
+  border-radius: var(--border-radius);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+[data-version="v3"] .interest-item {
+  background: rgba(244, 179, 12, 0.12);
+  border-radius: 12px;
+}
+
+[data-version="v3"] .interest-item:hover {
+  background: rgba(244, 179, 12, 0.25);
+}
+
+[data-version="v3"] .interest-item i {
+  color: var(--accent-color);
+}
+
+[data-version="v3"][data-theme="dark"] .about-highlights,
+[data-version="v3"][data-theme="dark"] .timeline-content,
+[data-version="v3"][data-theme="dark"] .personal-interests {
+  background: var(--light-card);
+  border: var(--ink-border);
+  backdrop-filter: none;
+}

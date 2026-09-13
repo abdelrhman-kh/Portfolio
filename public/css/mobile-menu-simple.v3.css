@@ -1,0 +1,114 @@
+/* ===== Version 3 ("Farmstand") mobile-menu overrides, scoped under
+   [data-version="v3"]. Mirrors the structure/behavior rules in
+   mobile-menu-simple.css exactly — only recolors to the cream/ink/yellow
+   brand palette. ===== */
+
+[data-version="v3"] {
+  --vh: 1vh;
+}
+
+@media (max-width: 768px) {
+  [data-version="v3"] nav .nav-container .menu-icon,
+  [data-version="v3"] .menu-icon {
+    background: transparent !important;
+  }
+
+  [data-version="v3"] nav .nav-container .menu-icon i,
+  [data-version="v3"] .menu-icon i {
+    color: #171310 !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] nav .nav-container .menu-icon i,
+  [data-version="v3"][data-theme="dark"] .menu-icon i {
+    color: #FBF9F1 !important;
+  }
+
+  [data-version="v3"] nav .nav-container #nav-links,
+  [data-version="v3"] nav #nav-links,
+  [data-version="v3"] #nav-links {
+    background: #FBF9F1 !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] nav .nav-container #nav-links,
+  [data-version="v3"][data-theme="dark"] nav #nav-links,
+  [data-version="v3"][data-theme="dark"] #nav-links {
+    background: #17130D !important;
+  }
+
+  [data-version="v3"] nav .nav-container #nav-links a,
+  [data-version="v3"] nav #nav-links a,
+  [data-version="v3"] #nav-links a {
+    color: #171310 !important;
+    background: rgba(23, 19, 16, 0.06) !important;
+    border: 2px solid rgba(23, 19, 16, 0.15) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    text-transform: uppercase !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 999px !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] nav .nav-container #nav-links a,
+  [data-version="v3"][data-theme="dark"] nav #nav-links a,
+  [data-version="v3"][data-theme="dark"] #nav-links a {
+    color: #FBF9F1 !important;
+    background: rgba(251, 249, 241, 0.08) !important;
+    border-color: rgba(251, 249, 241, 0.2) !important;
+  }
+
+  [data-version="v3"] nav .nav-container #nav-links a i,
+  [data-version="v3"] nav #nav-links a i,
+  [data-version="v3"] #nav-links a i {
+    color: inherit !important;
+  }
+
+  [data-version="v3"] nav .nav-container #nav-links a:hover,
+  [data-version="v3"] nav #nav-links a:hover,
+  [data-version="v3"] #nav-links a:hover,
+  [data-version="v3"] nav .nav-container #nav-links a:focus,
+  [data-version="v3"] nav #nav-links a:focus,
+  [data-version="v3"] #nav-links a:focus,
+  [data-version="v3"] nav .nav-container #nav-links a.active,
+  [data-version="v3"] nav #nav-links a.active,
+  [data-version="v3"] #nav-links a.active {
+    background: #171310 !important;
+    border-color: #171310 !important;
+    color: #F4B30C !important;
+  }
+
+  [data-version="v3"] nav .nav-container .menu-icon.active,
+  [data-version="v3"] .menu-icon.active {
+    background: rgba(23, 19, 16, 0.1) !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] nav .nav-container .menu-icon.active,
+  [data-version="v3"][data-theme="dark"] .menu-icon.active {
+    background: rgba(251, 249, 241, 0.15) !important;
+  }
+
+  [data-version="v3"] nav .nav-container .menu-icon.active i,
+  [data-version="v3"] .menu-icon.active i {
+    color: #171310 !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] nav .nav-container .menu-icon.active i,
+  [data-version="v3"][data-theme="dark"] .menu-icon.active i {
+    color: #FBF9F1 !important;
+  }
+
+  [data-version="v3"] body.menu-open {
+    background: #FBF9F1 !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] body.menu-open {
+    background: #17130D !important;
+  }
+
+  [data-version="v3"] #nav-links.active::before {
+    background: #FBF9F1 !important;
+  }
+
+  [data-version="v3"][data-theme="dark"] #nav-links.active::before {
+    background: #17130D !important;
+  }
+}
