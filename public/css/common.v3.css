@@ -440,7 +440,9 @@
 }
 
 /* ---------- Mobile nav overlay ---------- */
-@media (max-width: 768px) {
+/* Matches the 1024px hamburger breakpoint in common.css — kept in sync so
+   the overlay is V3-themed as soon as it appears, not just below 768px. */
+@media (max-width: 1024px) {
   [data-version="v3"] #nav-links {
     background: rgba(251, 249, 241, 0.99);
   }

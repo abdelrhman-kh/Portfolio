@@ -442,7 +442,9 @@ html[data-version="v2"] {
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {[data-version="v2"] .menu-icon {
+/* Nav collapses to the hamburger/overlay menu below 1025px, not 769px —
+   see the matching comment in common.css. */
+@media (max-width: 1024px) {[data-version="v2"] .menu-icon {
     display: block;
     z-index: 10001;
     position: relative;
@@ -527,6 +529,13 @@ html[data-version="v2"] {
     background: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
   }
+[data-version="v2"] .nav-container {
+    padding: 1rem;
+  }
+
+}
+
+@media (max-width: 768px) {
 [data-version="v2"] .container {
     padding: 0 1rem;
     padding-top: 90px;
@@ -541,13 +550,9 @@ html[data-version="v2"] {
 [data-version="v2"] section {
     padding: 3rem 0;
   }
-[data-version="v2"] .nav-container {
-    padding: 1rem;
-  }
-
 }
 
-@media (max-width: 768px) {[data-version="v2"] body.menu-open {
+@media (max-width: 1024px) {[data-version="v2"] body.menu-open {
     overflow: hidden;
   }
 [data-version="v2"] .nav-container {

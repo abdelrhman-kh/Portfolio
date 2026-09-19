@@ -659,7 +659,13 @@ footer > p {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* Nav collapses to the hamburger/overlay menu below 1025px, not 769px.
+   The full desktop nav (logo + version toggle + theme toggle + 6 links)
+   needs roughly 900px of breathing room; showing it any earlier — as a
+   plain 768px cutoff did — left it visibly crowded/overlapping at
+   common tablet widths (e.g. 820px). Below 1025px we now show the
+   hamburger instead, same as mobile. */
+@media (max-width: 1024px) {
   .menu-icon {
     display: block;
     z-index: 10001;
@@ -669,17 +675,17 @@ footer > p {
     border-radius: 8px;
     transition: var(--transition);
   }
-  
+
   .menu-icon:hover {
     background: rgba(22, 163, 74, 0.1);
   }
-  
+
   .menu-icon i {
     font-size: 1.5rem;
     transition: var(--transition);
     color: var(--text-primary);
   }
-  
+
   #nav-links {
     position: fixed;
     top: 0;
@@ -699,20 +705,20 @@ footer > p {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 2rem;
   }
-  
+
   #nav-links.active {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
     display: flex;
   }
-  
+
   #nav-links li {
     margin: 0;
     width: 100%;
     max-width: 300px;
   }
-  
+
   #nav-links a {
     display: block;
     padding: 1.5rem 2rem;
@@ -727,56 +733,58 @@ footer > p {
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   #nav-links.active li:nth-child(1) a { animation: slideInScale 0.5s ease-out 0.1s forwards; }
   #nav-links.active li:nth-child(2) a { animation: slideInScale 0.5s ease-out 0.2s forwards; }
   #nav-links.active li:nth-child(3) a { animation: slideInScale 0.5s ease-out 0.3s forwards; }
   #nav-links.active li:nth-child(4) a { animation: slideInScale 0.5s ease-out 0.4s forwards; }
   #nav-links.active li:nth-child(5) a { animation: slideInScale 0.5s ease-out 0.5s forwards; }
   #nav-links.active li:nth-child(6) a { animation: slideInScale 0.5s ease-out 0.6s forwards; }
-  
+
   #nav-links a:hover {
     background: var(--accent-color);
     color: white;
     transform: scale(1.05);
     border-color: var(--accent-color);
   }
-  
+
   #nav-links a.active {
     background: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
   }
-  
+
   [data-theme="dark"] #nav-links {
     background: rgba(10, 15, 13, 0.98);
   }
-  
+
   [data-theme="dark"] #nav-links a {
     background: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
   }
-  
+
+  .nav-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
   .container {
     padding: 0 1rem;
     padding-top: 90px;
   }
-  
+
   .hero {
     margin: 0 -1rem;
     padding: 0 1rem;
   }
-  
+
   .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
   }
-  
+
   section {
     padding: 3rem 0;
-  }
-  
-  .nav-container {
-    padding: 1rem;
   }
 }
 
@@ -803,7 +811,7 @@ footer > p {
 }
 
 /* Mobile menu overlay styling */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body.menu-open {
     overflow: hidden;
   }

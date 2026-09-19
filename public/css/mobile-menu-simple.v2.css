@@ -6,7 +6,8 @@
   --vh: 1vh;
 }
 
-@media (max-width: 768px) {[data-version="v2"] nav .nav-container .menu-icon, [data-version="v2"] .menu-icon {
+/* Kept in sync with the 1024px hamburger breakpoint — see common.css. */
+@media (max-width: 1024px) {[data-version="v2"] nav .nav-container .menu-icon, [data-version="v2"] .menu-icon {
     display: block !important;
     position: relative !important;
     z-index: 99998 !important;

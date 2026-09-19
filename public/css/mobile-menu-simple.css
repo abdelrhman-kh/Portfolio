@@ -8,8 +8,13 @@
 }
 
 /* Reset and base styles */
-@media (max-width: 768px) {
-  
+/* Kept in sync with the 1024px hamburger breakpoint in common.css — this
+   file supplies the actual bulletproof full-screen overlay (solid
+   background, hides everything but nav, locks scroll). Without bumping
+   it too, tablet widths (769-1024px) would show the hamburger but get
+   none of that robustness, leaving the menu see-through. */
+@media (max-width: 1024px) {
+
   /* FORCE MENU ICON TO SHOW - OVERRIDE ALL OTHER STYLES */
   nav .nav-container .menu-icon,
   .menu-icon {
